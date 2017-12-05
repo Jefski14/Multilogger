@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Multilogger</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/Chart.bundle.js"></script>
+    <script src="../js/myscripts.js"></script>
+</head>
+
+<body>
+<header>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Multilogger</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graphgen.html">Custom Graph</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graphgen.html">Custom Graph</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <h1 class="header center orange-text">Multilogger</h1>
+            <div class="row center">
+                <div class="canvasHolder">
+                    <div class="col s3">
+                        <h5 class="col s12  light left-align" id="currentDataTitle"></h5>
+                    </div>
+                    <div class="col s3">
+                        <!-- Switch -->
+                        <form>
+                            <label>Interpolieren</label>
+                            <input type="checkbox" class="filled-in" id="interpolateGraph" onchange="updateGraphInterpolation()" />
+                            <label for="interpolateGraph"></label>
+                        </form>
+                    </div>
+                    <div class="input-field col s3">
+                        <select multiple onchange="updateGraph2()" id="sensorSelect">
+                            <option value="1" selected="selected">197964</option>
+                            <option value="2" selected="selected">11111</option>
+                            <option value="3" selected="selected">Sensor 3</option>
+                            <option value="4" >Average</option>
+                        </select>
+                        <label>Sensorauswahl</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <select onchange="updateGraph2()" id="typeSelect">
+                            <option value="1" selected="selected">Temperatur</option>
+                            <option value="2">CO2</option>
+                            <option value="3">Luftfeuchtigkeit</option>
+                        </select>
+                        <label>Daten Auswahl</label>
+                    </div>
+                    <canvas id="currentData"></canvas>
+                </div>
+            </div>
+            <div class="row center">
+                <a href="graphgen.html" id="download-button" class="btn-large waves-effect waves-light orange">Generate
+                    own Graph</a>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</main>
+<footer class="page-footer orange">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h5 class="white-text">Project Bio</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+
+                <div class="col s6">
+                    Made by <a class="orange-text text-lighten-3" href="#">Jérôme Fijalkowski &amp Torsten Petersen</a>
+                    <br>© 2017 FH Aachen
+                </div>
+                <div class="col s6 right-align">
+                    Design Framework <a class="orange-text text-lighten-3"
+                                        href="http://materializecss.com">Materialize</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../js/materialize.js"></script>
+<script src="../js/init.js"></script>
+
+<script>
+    window.onload = function () {
+    };
+    $(document).ready(function () {
+        $('select').material_select();
+        setBaseConfig();
+        getData();
+        updateGraph2();
+    });
+</script>
+</body>
+
+</html>

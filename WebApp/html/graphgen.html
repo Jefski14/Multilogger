@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>ML GraphGen</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/Chart.bundle.js"></script>
+    <script src="../js/myscripts.js"></script>
+</head>
+
+<body>
+<header>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Multilogger</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graphgen.html">Custom Graph</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graphgen.html">Custom Graph</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <div class="col s12">
+                <h1 class="header center orange-text">Graph Generator</h1>
+            </div>
+            <div class="row">
+                <div class="col s3">
+                    <div class="input-field col s12">
+                        <select multiple>
+                            <option value="1">Sensor 1</option>
+                            <option value="2">Sensor 2</option>
+                            <option value="3">Sensor 3</option>
+                        </select>
+                        <label>Sensorauswahl</label>
+                    </div>
+                </div>
+                <div class="col s3 input-field">
+                    <label>From</label>
+                    <input type="text" class="datepicker" id="StartDatePicker">
+                </div>
+                <div class="col s3 input-field">
+                    <label>To</label>
+                    <input type="text" class="datepicker"  id="EndDatePicker">
+                </div>
+                <div class="col s3">
+                    <button class="btn-large waves-effect waves-light orange mycenter">Generate!</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s3">
+                </div>
+                <div class="col s3 input-field">
+                    <input type="text" class="timepicker" id="StartTimePicker" value="00:00">
+                </div>
+                <div class="col s3 input-field">
+                    <input type="text" class="timepicker"  id="EndTimePicker">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="page-footer orange">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h5 class="white-text">Company Bio</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's
+                    our full time job. Any amount would help support
+                    and continue development on this project and is greatly appreciated.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+
+                <div class="col s6">
+                    Made by <a class="orange-text text-lighten-3" href="#">Jérôme Fijalkowski &amp Torsten Petersen</a>
+                    <br>© 2017 FH Aachen
+                </div>
+                <div class="col s6 right-align">
+                    Design Framework <a class="orange-text text-lighten-3"
+                                        href="http://materializecss.com">Materialize</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../js/materialize.js"></script>
+<script src="../js/init.js"></script>
+
+<script>
+    window.onload = function () {
+
+    };
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 5, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: true // Close upon selecting a date,
+    });
+    $('.timepicker').pickatime({
+        default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+        fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+        twelvehour: false, // Use AM/PM or 24-hour format
+        donetext: 'OK', // text for done-button
+        cleartext: 'Clear', // text for clear-button
+        canceltext: 'Cancel', // Text for cancel-button
+        autoclose: true, // automatic close timepicker
+        ampmclickable: true, // make AM PM clickable
+        aftershow: function(){} //Function for after opening timepicker
+    });
+    //Prepopulate the Datepicker
+    var $input = $('#StartDatePicker').pickadate();
+    var picker = $input.pickadate('picker');
+    picker.set('select', new Date());
+    var $input = $('#EndDatePicker').pickadate();
+    var picker = $input.pickadate('picker');
+    picker.set('select', new Date());
+    //Prepopulate Timepicker
+    $("#EndTimePicker").val(getCurrentTime());
+</script>
+</body>
+
+</html>
