@@ -267,9 +267,13 @@ function setBaseConfig() {
 window.sensorDataSets = {};
 
 function getData() {
+	// Required date format: yyyy-mm-dd hh:mm:ss
+	var from = "2017-12-01 12:14:50";
+    var until = "2040-01-01 23:59:59";	
+	
     $.ajax({
         async: false, //zum setzen der variablen
-        url: "http://localhost/WebApp/html/ajaxtest.php",
+        url: "http://localhost/WebApp/php/getData.php?startDateTime="+from+"&endDateTime="+until,
         method: "GET",
         success: function (data) {
             jdata = JSON.parse(data);
