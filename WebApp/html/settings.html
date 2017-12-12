@@ -22,14 +22,14 @@
         <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Multilogger</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="graphgen.html">Custom Graph</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="graphgen.html">Eigener Graph</a></li>
+                <li><a href="settings.html">Einstellungen</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="graphgen.html">Custom Graph</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="graphgen.html">Eigener Graph</a></li>
+                <li><a href="settings.html">Einstellung</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -49,40 +49,46 @@
                         <th>Sensorname</th>
                         <th>Sensor ID</th>
                         <th>Neuer Name</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>Sensor 1</td>
                         <td>197964</td>
-                        <td>
-                            <input id="input_text" type="text" data-length="10" class="focus">
-                            <label for="input_text">Input text</label>
-                        </td>
-                        <td>
-                            <button class="btn waves-effect waves-light orange">Bestätigen</button>
+                        <td class="td-withfield">
+                            <input type="text" id="sensor1Name">
                         </td>
                     </tr>
+                    <tr>
+                        <td>Sensor 2</td>
+                        <td>197964</td>
+                        <td class="td-withfield">
+                            <input type="text" id="sensor2Name">
+                        </td>
+                    </tr>
+
                     </tbody>
                 </table>
+            </div>
+            <div class="col s12 right-align">
+                <button class="btn waves-effect waves-light orange">Bestätigen</button>
             </div>
         </div>
     </div>
 </main>
-
 <footer class="page-footer orange">
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
+                <h5 class="white-text">Project Bio</h5>
+                <p class="grey-text text-lighten-4">Wir sind ein Team von Studenten die dieses Projekt im Zuge des Informatikstudiums durchführen.</p>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
             <div class="row">
+
                 <div class="col s6">
                     Made by <a class="orange-text text-lighten-3" href="#">Jérôme Fijalkowski &amp Torsten Petersen</a>
                     <br>© 2017 FH Aachen
@@ -105,6 +111,7 @@
 <script>
     $(document).ready(function () {
         $('select').material_select();
+        $('input#input_text, textarea#textarea1').characterCounter();
     });
 </script>
 </body>

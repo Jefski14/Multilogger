@@ -28,7 +28,14 @@ main {
     justify-content: center;
     margin: auto;
 }
-
+.valign-switch {
+    margin-top: 7px;
+}
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    margin: 0 0 5px 0;
+    padding-bottom: 1px;
+    padding-top: 5px;
+}
 .picker__date-display {
     background-color:#ff9800;
 }
@@ -41,6 +48,11 @@ main {
 .picker__today, .picker__close{
     color: #29b6f6;
 }
+td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 
 .clockpicker-tick.active,
 .clockpicker-tick:hover {

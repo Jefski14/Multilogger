@@ -76,10 +76,12 @@ function defaultDate(datePickerID) {
 
 function getCurrentTime() {
     var date = new Date();
-    var currentTime = date.getHours() + ':' + date.getMinutes();
+    var currentTime = date.getHours() + ':' + lead(date.getMinutes());
     return currentTime;
 }
-
+function lead (number) {
+    return (number < 10 ? '0' : '') + number;
+}
 function calcAvg(type) {
     var avg = [];
     for (var i = 0; i < window.myLine.config.data.datasets.length; i++) {
@@ -268,8 +270,8 @@ window.sensorDataSets = {};
 
 function getData() {
 	// Required date format: yyyy-mm-dd hh:mm:ss
-	var from = "2017-12-01 12:14:50";
-    var until = "2040-01-01 23:59:59";	
+	var from = "2017-12-01 11:14:50";
+    var until = "2017-12-01 23:59:59";
 	
     $.ajax({
         async: false, //zum setzen der variablen
@@ -358,5 +360,5 @@ function updateGraph2() {
         }
     }
     window.myLine.update(0);
-    document.getElementById("currentDataTitle").innerHTML = "Data from " + getNiceDate();
+    document.getElementById("currentDataTitle").innerHTML = "Daten vom " + getNiceDate();
 }

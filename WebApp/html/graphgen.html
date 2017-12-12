@@ -22,14 +22,14 @@
         <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Multilogger</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="graphgen.html">Custom Graph</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="graphgen.html">Eigener Graph</a></li>
+                <li><a href="settings.html">Einstellungen</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="graphgen.html">Custom Graph</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="graphgen.html">Eigener Graph</a></li>
+                <li><a href="settings.html">Einstellung</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -54,11 +54,11 @@
                 </div>
                 <div class="col s3 input-field">
                     <label>From</label>
-                    <input type="text" class="datepicker" id="StartDatePicker">
+                    <input type="date" class="datepicker" id="StartDatePicker">
                 </div>
                 <div class="col s3 input-field">
                     <label>To</label>
-                    <input type="text" class="datepicker"  id="EndDatePicker">
+                    <input type="date" class="datepicker"  id="EndDatePicker">
                 </div>
                 <div class="col s3">
                     <button class="btn-large waves-effect waves-light orange mycenter">Generate!</button>
@@ -81,8 +81,8 @@
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
+                <h5 class="white-text">Project Bio</h5>
+                <p class="grey-text text-lighten-4">Wir sind ein Team von Studenten die dieses Projekt im Zuge des Informatikstudiums durchführen.</p>
             </div>
         </div>
     </div>
@@ -117,6 +117,7 @@
         $('select').material_select();
     });
     $('.datepicker').pickadate({
+        //format: 'dd/mm/yyyy',
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 5, // Creates a dropdown of 15 years to control year,
         today: 'Today',
