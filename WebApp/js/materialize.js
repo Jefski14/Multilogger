@@ -383,7 +383,7 @@ jQuery.Velocity ? console.log("Velocity is already loaded. You may be needlessly
           }, 1);
         }s && o.loop !== !0 && s(n), i(p) && o.loop === !0 && !t && (f.each(i(p).tweensContainer, function (e, t) {
           /^rotate/.test(e) && 360 === parseFloat(t.endValue) && (t.endValue = 0, t.startValue = 360), /^backgroundPosition/.test(e) && 100 === parseFloat(t.endValue) && "%" === t.unitType && (t.endValue = 0, t.startValue = 100);
-        }), b(p, "reverse", { loop: !0, delay: o.delay })), o.queue !== !1 && f.dequeue(p, o.queue);
+        }), (p, "reverse", { loop: !0, delay: o.delay })), o.queue !== !1 && f.dequeue(p, o.queue);
       }b.State.calls[e] = !1;for (var m = 0, y = b.State.calls.length; y > m; m++) {
         if (b.State.calls[m] !== !1) {
           l = !0;break;
