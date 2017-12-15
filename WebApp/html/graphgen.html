@@ -61,7 +61,7 @@
                     <input type="date" class="datepicker"  id="EndDatePicker">
                 </div>
                 <div class="col s3">
-                    <button class="btn-large waves-effect waves-light orange mycenter">Generate!</button>
+                    <button class="btn-large waves-effect waves-light orange mycenter" onclick="genOwnGraph()">Generate!</button>
                 </div>
             </div>
             <div class="row">
@@ -117,7 +117,7 @@
         $('select').material_select();
     });
     $('.datepicker').pickadate({
-        format: 'dd/mm/yyyy',
+        format: 'yyyy-mm-dd',
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 5, // Creates a dropdown of 15 years to control year,
         today: 'Today',

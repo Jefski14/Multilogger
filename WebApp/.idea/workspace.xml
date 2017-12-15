@@ -11,38 +11,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="getData.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/getData.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-              <folding>
-                <marker date="1512731352219" expanded="true" signature="193:325" ph="SELECT `sens... messwerte" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="graphgen.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/graphgen.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="146" column="46" lean-forward="true" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+            <state relative-caret-position="20">
+              <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="materialize.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/materialize.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="7242" column="4" lean-forward="true" selection-start-line="7242" selection-start-column="4" selection-end-line="7244" selection-end-column="6" />
-              <folding>
-                <marker date="1513101810635" expanded="true" signature="197883:197890" ph="..." />
-                <marker date="1513101810635" expanded="true" signature="267548:267577" ph="..." />
-                <marker date="1513101810635" expanded="true" signature="267826:267836" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -50,13 +24,34 @@
       <file leaf-file-name="myscripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/myscripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="78" column="69" lean-forward="false" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
+            <state relative-caret-position="420">
+              <caret line="415" column="45" lean-forward="true" selection-start-line="415" selection-start-column="45" selection-end-line="415" selection-end-column="45" />
               <folding>
                 <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-                <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-                <element signature="e#6240#6443#0" expanded="false" />
+                <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+                <element signature="e#6535#8379#0" expanded="false" />
+                <element signature="e#6546#6749#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="72" column="22" lean-forward="true" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="owngraph.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/owngraph.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="115" column="8" lean-forward="false" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,8 +59,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="54">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,8 +71,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -110,10 +105,12 @@
         <option value="$PROJECT_DIR$/html/ajaxtest.php" />
         <option value="$PROJECT_DIR$/css/materialize.css" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/html/index.html" />
         <option value="$PROJECT_DIR$/html/settings.html" />
-        <option value="$PROJECT_DIR$/html/graphgen.html" />
         <option value="$PROJECT_DIR$/js/materialize.js" />
+        <option value="$PROJECT_DIR$/html/graphgen.html" />
+        <option value="$PROJECT_DIR$/html/owngraph.html" />
+        <option value="$PROJECT_DIR$/html/index.html" />
+        <option value="chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/include.postload.js" />
         <option value="$PROJECT_DIR$/js/myscripts.js" />
       </list>
     </option>
@@ -125,7 +122,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="71" />
     <option name="width" value="935" />
     <option name="height" value="1087" />
@@ -145,6 +142,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -176,8 +175,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -201,22 +198,22 @@
     <configuration name="ajaxtest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/ajaxtest.html" />
     <configuration name="ajaxtest.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/ajaxtest.php" />
     <configuration name="chartmaker.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/chartmaker.html" />
-    <configuration name="graphgen.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/graphgen.html" />
     <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/index.html" />
+    <configuration name="owngraph.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/owngraph.html" />
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.graphgen.html" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.chartmaker.html" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.php" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.chartmaker.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.php" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.html" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.owngraph.html" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.php" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.chartmaker.html" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.graphgen.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.owngraph.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.php" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.chartmaker.html" />
       </list>
     </recent_temporary>
   </component>
@@ -244,31 +241,34 @@
       <workItem from="1512559070474" duration="1719000" />
       <workItem from="1512731391643" duration="1404000" />
       <workItem from="1513096596731" duration="5637000" />
+      <workItem from="1513149276069" duration="1678000" />
+      <workItem from="1513332339857" duration="7486000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57486000" />
+    <option name="totallyTimeSpent" value="66650000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="-8" width="1858" height="1096" extended-state="6" />
+    <frame x="71" y="0" width="935" height="1087" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11997829" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24047878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32036847" sideWeight="0.5038168" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995943" sideWeight="0.49618322" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1729785" sideWeight="0.49618322" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -280,26 +280,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="52" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/graphgen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
-          <caret line="146" column="28" lean-forward="false" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/settings.php" />
-    <entry file="file://$PROJECT_DIR$/html/phpjstest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/html/phpjstest.php" />
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -314,8 +301,9 @@
           <caret line="126" column="45" lean-forward="false" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="e#6240#6443#0" expanded="false" />
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="e#6535#8379#0" expanded="false" />
+            <element signature="e#6546#6749#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -336,13 +324,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/settings.php" />
-    <entry file="file://$PROJECT_DIR$/html/phpjstest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/html/phpjstest.php" />
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -357,8 +339,9 @@
           <caret line="126" column="45" lean-forward="false" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="e#6240#6443#0" expanded="false" />
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="e#6535#8379#0" expanded="false" />
+            <element signature="e#6546#6749#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -379,13 +362,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/settings.php" />
-    <entry file="file://$PROJECT_DIR$/html/phpjstest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/html/phpjstest.php" />
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -400,8 +377,9 @@
           <caret line="172" column="25" lean-forward="false" selection-start-line="172" selection-start-column="25" selection-end-line="172" selection-end-column="25" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="e#6240#6443#0" expanded="false" />
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="e#6535#8379#0" expanded="false" />
+            <element signature="e#6546#6749#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,19 +414,14 @@
           <caret line="79" column="23" lean-forward="false" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="e#6240#6443#0" expanded="false" />
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="e#6535#8379#0" expanded="false" />
+            <element signature="e#6546#6749#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/phpjstest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/html/phpjstest.php" />
     <entry file="file://$PROJECT_DIR$/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
@@ -463,8 +436,9 @@
           <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="e#6240#6443#0" expanded="false" />
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="e#6535#8379#0" expanded="false" />
+            <element signature="e#6546#6749#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -483,8 +457,9 @@
           <caret line="29" column="50" lean-forward="true" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="e#6240#6443#0" expanded="false" />
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="e#6535#8379#0" expanded="false" />
+            <element signature="e#6546#6749#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -500,13 +475,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/settings.php" />
-    <entry file="file://$PROJECT_DIR$/html/phpjstest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/html/phpjstest.php" />
     <entry file="file://D:/Dokumente/FHAachen/IP_InterdisziplinaeresProjekt/newfile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -521,36 +490,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Chart.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ajaxtest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="68" lean-forward="false" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ajaxtest.html" />
     <entry file="file://$PROJECT_DIR$/js/ajaxtest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/ajaxtest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ajaxtest.php" />
     <entry file="file://$PROJECT_DIR$/php/getConnection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -559,14 +507,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/php/test.php" />
     <entry file="file://$PROJECT_DIR$/php/changeSensornames.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -583,7 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,25 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
           <caret line="3410" column="18" lean-forward="false" selection-start-line="3410" selection-start-column="18" selection-end-line="3410" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/getData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding>
-            <marker date="1512731352219" expanded="true" signature="193:325" ph="SELECT `sens... messwerte" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="12" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="32" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -625,7 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -637,10 +557,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <marker date="1512731352219" expanded="true" signature="193:325" ph="SELECT `sens... messwerte" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/graphgen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="72" column="22" lean-forward="true" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/materialize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="7242" column="4" lean-forward="true" selection-start-line="7242" selection-start-column="4" selection-end-line="7244" selection-end-column="6" />
+        <state relative-caret-position="199">
+          <caret line="3366" column="2" lean-forward="false" selection-start-line="3366" selection-start-column="2" selection-end-line="3366" selection-end-column="2" />
           <folding>
             <marker date="1513101810635" expanded="true" signature="197883:197890" ph="..." />
             <marker date="1513101810635" expanded="true" signature="267548:267577" ph="..." />
@@ -649,30 +603,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
+    <entry file="file://$PROJECT_DIR$/js/Chart.bundle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="1266">
+          <caret line="15151" column="4" lean-forward="false" selection-start-line="15151" selection-start-column="4" selection-end-line="15151" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/graphgen.html">
+    <entry file="file://$PROJECT_DIR$/html/owngraph.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="146" column="46" lean-forward="true" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+        <state relative-caret-position="145">
+          <caret line="115" column="8" lean-forward="false" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/myscripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="78" column="69" lean-forward="false" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
+        <state relative-caret-position="420">
+          <caret line="415" column="45" lean-forward="true" selection-start-line="415" selection-start-column="45" selection-end-line="415" selection-end-column="45" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="e#6240#6443#0" expanded="false" />
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="e#6535#8379#0" expanded="false" />
+            <element signature="e#6546#6749#0" expanded="false" />
           </folding>
         </state>
       </provider>
