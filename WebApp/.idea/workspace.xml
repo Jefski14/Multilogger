@@ -24,8 +24,8 @@
       <file leaf-file-name="myscripts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/myscripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="415" column="45" lean-forward="true" selection-start-line="415" selection-start-column="45" selection-end-line="415" selection-end-column="45" />
+            <state relative-caret-position="226">
+              <caret line="296" column="81" lean-forward="false" selection-start-line="296" selection-start-column="81" selection-end-line="296" selection-end-column="81" />
               <folding>
                 <element signature="n#!!block;n#generateConfig#0" expanded="false" />
                 <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
@@ -242,12 +242,12 @@
       <workItem from="1512731391643" duration="1404000" />
       <workItem from="1513096596731" duration="5637000" />
       <workItem from="1513149276069" duration="1678000" />
-      <workItem from="1513332339857" duration="7486000" />
+      <workItem from="1513332339857" duration="7936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66650000" />
+    <option name="totallyTimeSpent" value="67100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="0" width="935" height="1087" extended-state="0" />
@@ -621,8 +621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/myscripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="415" column="45" lean-forward="true" selection-start-line="415" selection-start-column="45" selection-end-line="415" selection-end-column="45" />
+        <state relative-caret-position="226">
+          <caret line="296" column="81" lean-forward="false" selection-start-line="296" selection-start-column="81" selection-end-line="296" selection-end-column="81" />
           <folding>
             <element signature="n#!!block;n#generateConfig#0" expanded="false" />
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
