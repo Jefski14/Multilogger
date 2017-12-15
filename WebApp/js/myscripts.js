@@ -273,7 +273,7 @@ function getData() {
 	
     $.ajax({
         async: false, //zum setzen der variablen
-        url: "http://localhost/WebApp/php/getData.php?startDateTime="+from+"&endDateTime="+until,
+        url: "/WebApp/php/getData.php?startDateTime="+from+"&endDateTime="+until,
         method: "GET",
         success: function (data) {
             jdata = JSON.parse(data);
