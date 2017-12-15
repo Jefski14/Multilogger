@@ -22,14 +22,14 @@
         <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Multilogger</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="graphgen.html">Custom Graph</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="graphgen.html">Eigener Graph</a></li>
+                <li><a href="settings.html">Einstellungen</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="graphgen.html">Custom Graph</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="graphgen.html">Eigener Graph</a></li>
+                <li><a href="settings.html">Einstellung</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -41,18 +41,19 @@
             <h1 class="header center orange-text">Multilogger</h1>
             <div class="row center">
                 <div class="canvasHolder">
-                    <div class="col s3">
-                        <h5 class="col s12  light left-align" id="currentDataTitle"></h5>
+                    <div class="col s2 light left-align" id="currentDataTitle">
                     </div>
-                    <div class="col s3">
+                    <div class="col s2">
                         <!-- Switch -->
-                        <form>
-                            <label>Interpolieren</label>
-                            <input type="checkbox" class="filled-in" id="interpolateGraph" onchange="updateGraphInterpolation()" />
-                            <label for="interpolateGraph"></label>
-                        </form>
+                        <label class="valign-wrapper left-align">Interpolieren</label>
+                        <div class="switch valign-switch left-align">
+                            <label>
+                                <input type="checkbox" id="interpolateGraph" onchange="updateGraphInterpolation()">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="input-field col s3">
+                    <div class="input-field col s4">
                         <select multiple onchange="updateGraph2()" id="sensorSelect">
                             <option value="1" selected="selected">197964</option>
                             <option value="2" selected="selected">11111</option>
@@ -61,7 +62,7 @@
                         </select>
                         <label>Sensorauswahl</label>
                     </div>
-                    <div class="input-field col s3">
+                    <div class="input-field col s4">
                         <select onchange="updateGraph2()" id="typeSelect">
                             <option value="1" selected="selected">Temperatur</option>
                             <option value="2">CO2</option>
@@ -73,8 +74,7 @@
                 </div>
             </div>
             <div class="row center">
-                <a href="graphgen.html" id="download-button" class="btn-large waves-effect waves-light orange">Generate
-                    own Graph</a>
+                <a href="graphgen.html" id="download-button" class="btn-large waves-effect waves-light orange">Eigenen Graph generieren</a>
             </div>
             <br><br>
         </div>
@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col s12">
                 <h5 class="white-text">Project Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
+                <p class="grey-text text-lighten-4">Wir sind ein Team von Studenten die dieses Projekt im Zuge des Informatikstudiums durchführen.</p>
             </div>
         </div>
     </div>
