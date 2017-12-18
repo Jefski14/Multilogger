@@ -73,9 +73,10 @@
                 </div>
             </div>
             <div class="row center">
-                <a href="graphgen.html" id="download-button" class="btn-large waves-effect waves-light orange">Eigenen Graph generieren</a>
+                <a href="graphgen.html" class="btn-large waves-effect waves-light orange">Eigenen Graph generieren</a>
             </div>
             <br><br>
+
         </div>
     </div>
 </main>
@@ -120,6 +121,7 @@
         setBaseConfig();
         getData();
         //updateSensorSelect();
+        $('select').material_select();
         updateGraph2();
     });
 </script>

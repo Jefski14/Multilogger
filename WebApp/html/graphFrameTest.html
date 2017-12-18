@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Multilogger</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/Chart.bundle.js"></script>
+    <script src="../js/myscripts.js"></script>
+</head>
+<body>
+<div class="canvasHolder container section no-pad-bot row center">
+
+    <div class="col s2">
+        <!-- Switch -->
+        <label class="valign-wrapper left-align">Interpolieren</label>
+        <div class="switch valign-switch left-align">
+            <label>
+                <input type="checkbox" id="interpolateGraph" onchange="updateGraphInterpolation()">
+                <span class="lever"></span>
+            </label>
+        </div>
+    </div>
+    <div class="input-field col s5">
+        Why
+        <select multiple onchange="updateGraph2()" onload="updateSensorSelect2()" id="sensorSelect">
+        </select>
+        <label>Sensorauswahl</label>
+    </div>
+    <div class="input-field col s5">
+        do you do this?
+        <select onchange="updateGraph2()" id="typeSelect">
+            <option value="1" selected="selected">Temperatur</option>
+            <option value="2">CO2</option>
+            <option value="3">Luftfeuchtigkeit</option>
+        </select>
+        <label>Daten Auswahl</label>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../js/materialize.js"></script>
+<script src="../js/init.js"></script>
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+
+        //setBaseConfig();
+        //updateSensorSelect();
+        //genGraph(window.name);
+    });
+</script>
+</html>

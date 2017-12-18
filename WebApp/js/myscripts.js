@@ -84,6 +84,11 @@ function lead(number) {
     return (number < 10 ? '0' : '') + number;
 }
 
+/**
+ * Calculates the Average of the Sensordata in current Datasets
+ * @param type
+ * @returns {{label: string, backgroundColor: string, borderColor: string, data: Array, fill: boolean}}
+ */
 function calcAvg(type) {
     var avg = [];
     for (var i = 0; i < window.myLine.config.data.datasets.length; i++) {
@@ -278,7 +283,6 @@ function setBaseConfig() {
  * the sensordata gets structured and saved to the window.sensorDataSets variable
  */
 window.sensorDataSets = {};
-
 function getData(start, end) {
     // Required date format: yyyy-mm-dd hh:mm:ss
     var d = new Date();
@@ -299,7 +303,9 @@ function getData(start, end) {
         success: function (data) {
             jdata = JSON.parse(data);
             var sensorDataSets = [];
-            window.sensorDataSets = structureData(jdata);
+            //window.sensorDataSets = structureData(jdata);
+            window.sensorDataSets= structureData2(jdata);
+            console.log(structureData2(jdata));
             var time = [];
             for (var i in jdata) {
                 time.push(jdata[i].datetime);
@@ -363,7 +369,73 @@ function structureData(sensorData) {
     return dataArray;
 }
 
-function updateGraph2() {
+function structureData2(sensorData) {
+    var dataArray = {
+        hasData: false,
+        sensors: [],
+    };
+    if(sensorData == undefined || sensorData[0] == undefined || sensorData == {}) {
+        dataArray.hasData = false;
+    }
+    else {
+
+        var colors = ["rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(75, 192, 192)", "rgb(255, 99, 132)", "rgb(255, 205, 86)", "rgb(201, 203, 207)"];
+        var currentID = sensorData[0].ID;
+        var first = currentID;
+        var currentType = sensorData[0].typ;
+        var firstType = currentType;
+        var sensorDataBlock = {
+            sID: currentID,
+            color: "rgb(54, 162, 235)",
+            t1data: [],
+            t2data: [],
+            t3data: [],
+            t1dTime: [],
+            t2dTime: [],
+            t3dTime: []
+        };
+        for (var i in sensorData) {
+            if (currentID == sensorData[i].ID) {
+                currentType = sensorData[i].typ;
+                if (currentType == "1") { //If sensorID and type stay the same, push the current value in the dataset
+                    sensorDataBlock.t1data.push(sensorData[i].value);
+                    sensorDataBlock.t1dTime.push(sensorData[i].datetime.slice(0, -3));
+                }
+                else if (currentType == "2") { //Switch to new dataset with other type
+                    sensorDataBlock.t2data.push(sensorData[i].value);
+                    sensorDataBlock.t2dTime.push(sensorData[i].datetime.slice(0, -3));
+                }
+                else if (currentType == "3") {
+                    sensorDataBlock.t3data.push(sensorData[i].value);
+                    sensorDataBlock.t3dTime.push(sensorData[i].datetime.slice(0, -3));
+                }
+            }
+            else {
+                sensorDataBlock.color = colors[colors.length -1];
+                colors.pop();
+                dataArray.sensors.push(sensorDataBlock);
+                currentID = sensorData[i].ID;
+                var sensorDataBlock = {
+                    sID: currentID,
+                    color: "rgb(54, 162, 235)",
+                    t1data: [],
+                    t2data: [],
+                    t3data: [],
+                    t1dTime: [],
+                    t2dTime: [],
+                    t3dTime: []
+                };
+            }
+        }
+        sensorDataBlock.color = colors[colors.length -1];
+        colors.pop();
+        dataArray.sensors.push(sensorDataBlock);
+        dataArray.hasData = true;
+    }
+    return dataArray;
+}
+
+function updateGraph5() {
     window.myLine.config.data.datasets = [];
     var sensorSelect = document.getElementById("sensorSelect");
     var typeSelect = document.getElementById("typeSelect");
@@ -400,6 +472,68 @@ function updateGraph2() {
     window.myLine.update(0);
 }
 
+function getSensorIndex(id) {
+    for (var i in window.sensorDataSets.sensors){
+        if(window.sensorDataSets.sensors[i].sID == id){
+            return i;
+        }
+    }
+    return undefined;
+}
+
+function getDataByType(sensorIndex, type) {
+    switch (type) {
+        case 1:
+            return window.sensorDataSets.sensors[sensorIndex].t1data;
+        case 2:
+            return window.sensorDataSets.sensors[sensorIndex].t2data;
+        case 3:
+            return window.sensorDataSets.sensors[sensorIndex].t3data;
+        default:
+            return undefined;
+    }
+
+}
+
+function updateGraph2() {
+    window.myLine.config.data.datasets = [];
+    var sensorSelect = document.getElementById("sensorSelect");
+    var typeSelect = document.getElementById("typeSelect");
+    for (var i = 0; i < sensorSelect.options.length; i++) {
+        if (sensorSelect.options[i].selected) {
+            if (i == sensorSelect.options.length - 1) {
+                //window.myLine.config.data.datasets.push(calcAvg(typeSelect.selectedIndex));
+            }
+            else {
+                if (window.sensorDataSets[sensorSelect.options[i].innerHTML] != undefined) {
+                    var sensorIndex = getSensorIndex(window.sensorDataSets[sensorSelect.options[i].innerHTML]);
+                    window.myLine.config.data.datasets.push(
+                        {
+                            label: window.sensorDataSets.sensors[sensorIndex].sID,
+                            backgroundColor: window.sensorDataSets.sensors[sensorIndex].color,
+                            borderColor: window.sensorDataSets.sensors[sensorIndex].color,
+                            data: getDataByType(sensorIndex , typeSelect.selectedIndex),
+                            fill: false
+                        }
+                    );
+                }
+            }
+        }
+        else {
+            window.myLine.config.data.datasets.splice(i, 1);
+        }
+    }
+
+    if(window.sensorDataSets != undefined && window.sensorDataSets.hasData) {
+        document.getElementById("currentDataTitle").innerHTML = "Daten vom " + window.sensorDataSets.sensors[0].t1dTime[0];
+        window.myLine.config.data.labels = window.sensorDataSets.sensors[0].t1dTime;
+    }
+    else {
+        document.getElementById("currentDataTitle").innerHTML = "Es sind keine Daten vorhanden!";
+    }
+    window.myLine.update(0);
+}
+
 function genOwnGraph() {
     var startTime = document.getElementById("StartTimePicker").value;
     var endTime = document.getElementById("EndTimePicker").value;
@@ -427,6 +561,9 @@ function updateSensorSelect() {
     for (var i in window.sensorDataSets) {
         var opt = document.createElement("option");
         opt.text = i.ID;
+        opt.innerHTML = i.ID;
+        opt.value = i.ID;
         sensorSelect.options.add(opt);
     }
+    $('#sensorSelect').material_select();
 }
