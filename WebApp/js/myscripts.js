@@ -70,10 +70,6 @@ function getNiceDate() {
     return today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 }
 
-function defaultDate(datePickerID) {
-    document.getElementById(datePickerID).valueAsDate = new Date();
-}
-
 function getCurrentTime() {
     var date = new Date();
     var currentTime = date.getHours() + ':' + lead(date.getMinutes());
@@ -82,58 +78,6 @@ function getCurrentTime() {
 
 function lead(number) {
     return (number < 10 ? '0' : '') + number;
-}
-
-/**
- * Calculates the Average of the Sensordata in current Datasets
- * @param type
- * @returns {{label: string, backgroundColor: string, borderColor: string, data: Array, fill: boolean}}
- */
-function calcAvg(type) {
-    var avg = [];
-    for (var i = 0; i < window.myLine.config.data.datasets.length; i++) {
-        for (var j = 0; j < window.myLine.config.data.datasets[i].data.length; j++) {
-            if (i == 0) {
-                avg[j] = window.myLine.config.data.datasets[i].data[j];
-            }
-            else {
-                avg[j] = parseFloat(avg[j]) + parseFloat(window.myLine.config.data.datasets[i].data[j]);
-            }
-        }
-    }
-    for (var i = 0; i < avg.length; i++) {
-        avg[i] = avg[i] / window.myLine.config.data.datasets.length;
-    }
-
-    return {
-        label: "Average",
-        backgroundColor: window.chartColors.grey,
-        borderColor: window.chartColors.grey,
-        data: avg,
-        fill: false
-    };
-}
-
-function updateGraph() {
-    window.myLine.config.data.datasets = [];
-    var sensorSelect = document.getElementById("sensorSelect");
-    var typeSelect = document.getElementById("typeSelect");
-
-    for (var i = 0; i < sensorSelect.options.length; i++) {
-        if (sensorSelect.options[i].selected) {
-            if (i == sensorSelect.options.length - 1) {
-                window.myLine.config.data.datasets.push(calcAvg(typeSelect.selectedIndex));
-            }
-            else {
-                window.myLine.config.data.datasets.push(window.datasetstest[i][typeSelect.selectedIndex]);
-            }
-        }
-        else {
-            window.myLine.config.data.datasets.splice(i, 1);
-        }
-    }
-    window.myLine.update(0);
-    document.getElementById("currentDataTitle").innerHTML = "Data from " + getNiceDate();
 }
 
 function updateGraphInterpolation() {
@@ -149,7 +93,7 @@ function updateGraphInterpolation() {
 function setBaseConfig() {
     var time = [];
     for (var i = 0; i < 25; i++) {
-        time.push(i.toString());
+        time.push(i.toString() + ":00");
     }
 
     var config = {
@@ -177,7 +121,7 @@ function setBaseConfig() {
                     display: true,
                     scaleLabel: {
                         display: false,
-                        labelString: 'Time'
+                        labelString: 'Uhrzeit'
                     },
                     ticks: {
                         maxRotation: 90,
@@ -188,7 +132,7 @@ function setBaseConfig() {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Value'
+                        labelString: 'Grad C°'
                     },
                     ticks: {
                         suggestedMin: 18,
@@ -208,74 +152,6 @@ function setBaseConfig() {
     window.ChartConfig = config;
     var ctx = document.getElementById("currentData").getContext("2d");
     window.myLine = new Chart(ctx, config);
-
-    var dummydata1 = [5, 5, 6, 10.15, 12, 3, -5, -4, 0, 0, 4, 6, 7, 8, 12];
-    var dummydata1f = [15, 10, 12, 16, 18, 15, 17, 25, 64, 91, 42, 30];
-    var dummydata2 = [5, 8, 6, 10.01, null, null, 13, 3, -1, 15];
-    var dummydata2f = [10, 12, 50, 50, 50, 30, 50, 30, 12, 60, null, 50];
-    var dummydata3 = [5, 9, 3, 4, 6, 8, 21, 5, 2, 4, 3, 4, 1, 6];
-    var dummydata3f = [0, 0, 0, 0, 2, 0, 30, 10, 12];
-
-    window.datasetstest = [
-        [{
-            label: "Sensor1",
-            backgroundColor: window.chartColors.orange,
-            borderColor: window.chartColors.orange,
-            data: dummydata1,
-            fill: false
-        }, {
-            label: "Sensor1",
-            backgroundColor: window.chartColors.orange,
-            borderColor: window.chartColors.orange,
-            data: dummydata1f,
-            fill: false
-        }, {
-            label: "Sensor1",
-            backgroundColor: window.chartColors.orange,
-            borderColor: window.chartColors.orange,
-            data: [],
-            fill: false
-        }
-        ],
-        [{
-            label: "Sensor2",
-            backgroundColor: window.chartColors.blue,
-            borderColor: window.chartColors.blue,
-            data: dummydata2,
-            fill: false
-        }, {
-            label: "Sensor2",
-            backgroundColor: window.chartColors.blue,
-            borderColor: window.chartColors.blue,
-            data: dummydata2f,
-            fill: false
-        }, {
-            label: "Sensor2",
-            backgroundColor: window.chartColors.blue,
-            borderColor: window.chartColors.blue,
-            data: [],
-            fill: false
-        }
-        ]
-        , [{
-            label: "Sensor3",
-            backgroundColor: window.chartColors.red,
-            borderColor: window.chartColors.red,
-            data: dummydata3,
-            fill: false
-        }, {
-            label: "Sensor3",
-            backgroundColor: window.chartColors.red,
-            borderColor: window.chartColors.red,
-            data: dummydata3f,
-            fill: false
-        }, {
-            label: "Sensor3",
-            backgroundColor: window.chartColors.red,
-            borderColor: window.chartColors.red,
-            data: [],
-            fill: false
-        }]];
 }
 
 /**
@@ -323,52 +199,6 @@ function getData(start, end) {
  * @param sensorData -> array of sensordata
  * @returns {Array}
  */
-function structureData(sensorData) {
-    var dataArray = [];
-    if(sensorData == undefined || sensorData[0] == undefined || sensorData == {}) {
-        dataArray.hasData = false;
-    }
-    else {
-        var currentID = sensorData[0].ID;
-        var first = currentID;
-        var currentType = sensorData[0].typ;
-        var firstType = currentType;
-        var numSensor = 0;
-        dataArray[currentID] = [];
-        dataArray[currentID].sID = currentID;
-        dataArray[currentID][currentType] = [];
-        dataArray.timeLabels = [];
-        var colors = ["rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(75, 192, 192)", "rgb(255, 99, 132)", "rgb(255, 205, 86)", "rgb(201, 203, 207)"];
-        dataArray[currentID].color = colors[numSensor];
-        //for loop runs through all the data
-        for (var i in sensorData) {
-            if (currentID == sensorData[i].ID) {
-                if (currentType == sensorData[i].typ) { //If sensorID and type stay the same, push the current value in the dataset
-                    dataArray[currentID][currentType].push(sensorData[i].value);
-                }
-                else { //Switch to new dataset with other type
-                    currentType = sensorData[i].typ;
-                    dataArray[currentID][currentType] = [];
-                }
-                if(currentID == first && currentType == firstType) {
-                    dataArray.timeLabels.push(sensorData[i].datetime.slice(0,-3));
-                }
-            }
-            else { //Switch to new dataset with other sensorID
-                currentID = sensorData[i].ID;
-                currentType = sensorData[i].typ;
-                dataArray[currentID] = [];
-                dataArray[currentID].sID = currentID;
-                dataArray[currentID][currentType] = [];
-                numSensor++;
-                dataArray[currentID].color = colors[numSensor];
-            }
-        }
-        dataArray.hasData = true;
-    }
-    return dataArray;
-}
-
 function structureData2(sensorData) {
     var dataArray = {
         hasData: false,
@@ -378,8 +208,7 @@ function structureData2(sensorData) {
         dataArray.hasData = false;
     }
     else {
-
-        var colors = ["rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(75, 192, 192)", "rgb(255, 99, 132)", "rgb(255, 205, 86)", "rgb(201, 203, 207)"];
+        var colors = ["rgb(201, 203, 207)","rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(75, 192, 192)", "rgb(255, 99, 132)", "rgb(255, 205, 86)"];
         var currentID = sensorData[0].ID;
         var first = currentID;
         var currentType = sensorData[0].typ;
@@ -410,7 +239,7 @@ function structureData2(sensorData) {
                     sensorDataBlock.t3dTime.push(sensorData[i].datetime.slice(0, -3));
                 }
             }
-            else {
+            else { //next Sensor
                 sensorDataBlock.color = colors[colors.length -1];
                 colors.pop();
                 dataArray.sensors.push(sensorDataBlock);
@@ -435,43 +264,11 @@ function structureData2(sensorData) {
     return dataArray;
 }
 
-function updateGraph5() {
-    window.myLine.config.data.datasets = [];
-    var sensorSelect = document.getElementById("sensorSelect");
-    var typeSelect = document.getElementById("typeSelect");
-
-    for (var i = 0; i < sensorSelect.options.length; i++) {
-        if (sensorSelect.options[i].selected) {
-            if (i == sensorSelect.options.length - 1) {
-                window.myLine.config.data.datasets.push(calcAvg(typeSelect.selectedIndex));
-            }
-            else {
-                if (window.sensorDataSets[sensorSelect.options[i].innerHTML] != undefined) {
-                    window.myLine.config.data.datasets.push(
-                        {
-                            label: window.sensorDataSets[sensorSelect.options[i].innerHTML].sID,
-                            backgroundColor: window.sensorDataSets[sensorSelect.options[i].innerHTML].color,
-                            borderColor: window.sensorDataSets[sensorSelect.options[i].innerHTML].color,
-                            data: window.sensorDataSets[sensorSelect.options[i].innerHTML][typeSelect.selectedIndex + 1],
-                            fill: false
-                        });
-                }
-            }
-        }
-        else {
-            window.myLine.config.data.datasets.splice(i, 1);
-        }
-    }
-    if(window.sensorDataSets != undefined && window.sensorDataSets.hasData) {
-        document.getElementById("currentDataTitle").innerHTML = "Daten vom " + window.sensorDataSets.timeLabels[0];
-        window.myLine.config.data.labels = window.sensorDataSets.timeLabels;
-    }
-    else {
-        document.getElementById("currentDataTitle").innerHTML = "Es sind keine Daten vorhanden!";
-    }
-    window.myLine.update(0);
-}
-
+/**
+ * Returns the array index of the dataset from sensor with ID @param id
+ * @param id
+ * @returns {*}
+ */
 function getSensorIndex(id) {
     for (var i in window.sensorDataSets.sensors){
         if(window.sensorDataSets.sensors[i].sID == id){
@@ -481,32 +278,72 @@ function getSensorIndex(id) {
     return undefined;
 }
 
+/**
+ * Returns array of data from sensor at @param sensorIndex from type @param type
+ * @param sensorIndex
+ * @param type
+ * @returns {*}
+ */
 function getDataByType(sensorIndex, type) {
     switch (type) {
-        case 1:
+        case 0:
             return window.sensorDataSets.sensors[sensorIndex].t1data;
-        case 2:
+        case 1:
             return window.sensorDataSets.sensors[sensorIndex].t2data;
-        case 3:
+        case 2:
             return window.sensorDataSets.sensors[sensorIndex].t3data;
         default:
             return undefined;
     }
 
 }
+/**
+ * Calculates the Average of the Sensordata in current Datasets
+ * @param type
+ * @returns {{label: string, backgroundColor: string, borderColor: string, data: Array, fill: boolean}}
+ */
+function calcAvg(type) {
+    var avg = [];
+    for (var i = 0; i < window.myLine.config.data.datasets.length; i++) {
+        for (var j = 0; j < window.myLine.config.data.datasets[i].data.length; j++) {
+            if (i == 0) {
+                avg[j] = window.myLine.config.data.datasets[i].data[j];
+            }
+            else {
+                avg[j] = parseFloat(avg[j]) + parseFloat(window.myLine.config.data.datasets[i].data[j]);
+            }
+        }
+    }
+    for (var i = 0; i < avg.length; i++) {
+        avg[i] = avg[i] / window.myLine.config.data.datasets.length;
+    }
 
-function updateGraph2() {
+    return {
+        label: "Durchschnitt",
+        backgroundColor: window.chartColors.grey,
+        borderColor: window.chartColors.grey,
+        data: avg,
+        fill: false
+    };
+}
+
+/**
+ * Checks which sensors & type are selected and changes the data displayed by the line chart accordingly
+ */
+function updateGraph() {
     window.myLine.config.data.datasets = [];
     var sensorSelect = document.getElementById("sensorSelect");
     var typeSelect = document.getElementById("typeSelect");
     for (var i = 0; i < sensorSelect.options.length; i++) {
         if (sensorSelect.options[i].selected) {
-            if (i == sensorSelect.options.length - 1) {
-                //window.myLine.config.data.datasets.push(calcAvg(typeSelect.selectedIndex));
+            if (sensorSelect.options[i].value == "0") {
+                //console.log("calcAvg");
+                window.myLine.config.data.datasets.push(calcAvg(typeSelect.selectedIndex));
             }
             else {
-                if (window.sensorDataSets[sensorSelect.options[i].innerHTML] != undefined) {
-                    var sensorIndex = getSensorIndex(window.sensorDataSets[sensorSelect.options[i].innerHTML]);
+                var sensorIndex = getSensorIndex(sensorSelect.options[i].value);
+                var test = typeSelect.selectedIndex;
+                if (window.sensorDataSets.sensors[sensorIndex] != undefined) {
                     window.myLine.config.data.datasets.push(
                         {
                             label: window.sensorDataSets.sensors[sensorIndex].sID,
@@ -549,7 +386,7 @@ function genOwnGraph() {
 function genGraph(zeitraumString) {
     var zeitraum = zeitraumString.split("&");
     getData(zeitraum[0], zeitraum[1]);
-    updateGraph2();
+    updateGraph();
 }
 
 function updateSensorSelect() {

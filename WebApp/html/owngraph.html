@@ -53,16 +53,16 @@
                         </div>
                     </div>
                     <div class="input-field col s5">
-                        <select multiple onchange="updateGraph2()" id="sensorSelect">
-                            <option value="1" selected="selected">197964</option>
-                            <option value="2" selected="selected">11111</option>
+                        <select multiple onchange="updateGraph()" id="sensorSelect">
+                            <option value="197964" selected="selected">197964</option>
+                            <option value="11111" selected="selected">11111</option>
                             <option value="3" selected="selected">Sensor 3</option>
-                            <option value="4" >Average</option>
+                            <option value="0" >Average</option>
                         </select>
                         <label>Sensorauswahl</label>
                     </div>
                     <div class="input-field col s5">
-                        <select onchange="updateGraph2()" id="typeSelect">
+                        <select onchange="updateGraph()" id="typeSelect">
                             <option value="1" selected="selected">Temperatur</option>
                             <option value="2">CO2</option>
                             <option value="3">Luftfeuchtigkeit</option>
@@ -118,6 +118,7 @@
     $(document).ready(function () {
         $('select').material_select();
         setBaseConfig();
+        window.name = "2017-12-01 00:00:00&2017-12-01 15:56:00";
         genGraph(window.name);
         //updateSensorSelect();
         $('select').material_select();
