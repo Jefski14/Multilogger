@@ -1,70 +1,3 @@
-function generateConfig(titleId) {
-
-    document.getElementById(titleId).innerHTML = "Data from " + getNiceDate();
-    var time = [];
-    var dummydata1 = [5, 5, 6, 10.15, 12, 3, -5, -4, 0, 0, 4, 6, 7, 8, 12];
-    var dummydata2 = [5, 8, 6, 10.01, 13, 3, -1, 15];
-    for (var i = 0; i < 24; i++) {
-        time.push(i.toString());
-    }
-    var config = {
-        type: 'line',
-        data: {
-            labels: time,
-            datasets: [{
-                label: "Sensor1",
-                backgroundColor: window.chartColors.orange,
-                borderColor: window.chartColors.orange,
-                data: dummydata1,
-                fill: false
-            }, {
-                label: "Sensor2",
-                fill: false,
-                backgroundColor: window.chartColors.blue,
-                borderColor: window.chartColors.blue,
-                data: dummydata2
-            }]
-        },
-        options: {
-            responsive: true,
-            title: {
-                display: false,
-                text: 'Data from ' + getNiceDate()
-            },
-            tooltips: {
-                mode: 'index',
-                intersect: false
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Time'
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Value'
-                    }
-                }]
-            }
-        }
-    }
-    return config;
-}
-
-function genGraph() {
-    var ctx = document.getElementById("currentData").getContext("2d");
-    window.myLine = new Chart(ctx, generateConfig("currentDataTitle"));
-}
-
 function getNiceDate() {
     var today = new Date();
     return today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
@@ -93,7 +26,7 @@ function updateGraphInterpolation() {
 function setBaseConfig() {
     var time = [];
     for (var i = 0; i < 25; i++) {
-        time.push(i.toString() + ":00");
+        time.push(lead(i).toString() + ":00");
     }
 
     var config = {
@@ -136,8 +69,8 @@ function setBaseConfig() {
                     },
                     ticks: {
                         suggestedMin: 18,
-                        suggestedMax: 20,
-                        stepSize: 2
+                        suggestedMax: 24,
+                        //stepSize: 2
                     }
                 }]
             },
@@ -180,8 +113,8 @@ function getData(start, end) {
             jdata = JSON.parse(data);
             var sensorDataSets = [];
             //window.sensorDataSets = structureData(jdata);
-            window.sensorDataSets= structureData2(jdata);
-            console.log(structureData2(jdata));
+            window.sensorDataSets= structureData(jdata);
+            console.log(structureData(jdata));
             var time = [];
             for (var i in jdata) {
                 time.push(jdata[i].datetime);
@@ -199,7 +132,7 @@ function getData(start, end) {
  * @param sensorData -> array of sensordata
  * @returns {Array}
  */
-function structureData2(sensorData) {
+function structureData(sensorData) {
     var dataArray = {
         hasData: false,
         sensors: [],
@@ -208,7 +141,7 @@ function structureData2(sensorData) {
         dataArray.hasData = false;
     }
     else {
-        var colors = ["rgb(201, 203, 207)","rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(75, 192, 192)", "rgb(255, 99, 132)", "rgb(255, 205, 86)"];
+        var colors = ["rgb(201, 203, 207)","rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(255, 99, 132)", "rgb(75, 192, 192)", "rgb(255, 205, 86)"];
         var currentID = sensorData[0].ID;
         var first = currentID;
         var currentType = sensorData[0].typ;
@@ -332,6 +265,7 @@ function calcAvg(type) {
  */
 function updateGraph() {
     window.myLine.config.data.datasets = [];
+    //update Data
     var sensorSelect = document.getElementById("sensorSelect");
     var typeSelect = document.getElementById("typeSelect");
     for (var i = 0; i < sensorSelect.options.length; i++) {
@@ -359,6 +293,33 @@ function updateGraph() {
         else {
             window.myLine.config.data.datasets.splice(i, 1);
         }
+    }
+    //Update Scales
+    var sensorType = typeSelect.selectedIndex;
+    switch (sensorType) {
+        case 0:
+            window.myLine.config.options.scales.yAxes[0].scaleLabel.labelString = "Grad C°";
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMin = 18;
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMax = 22;
+            window.myLine.config.options.scales.yAxes[0].ticks.stepSize = 2;
+            break;
+        case 1:
+            window.myLine.config.options.scales.yAxes[0].scaleLabel.labelString = "CO2";
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMin = 18;
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMax = 22;
+            window.myLine.config.options.scales.yAxes[0].ticks.stepSize = 1;
+            break;
+        case 2:
+            window.myLine.config.options.scales.yAxes[0].scaleLabel.labelString = "% Luftfeuchtigkeit";
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMin = 60;
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMax = 80;
+            window.myLine.config.options.scales.yAxes[0].ticks.stepSize = 10;
+            break;
+        default:
+            window.myLine.config.options.scales.yAxes[0].scaleLabel.labelString = "No Data";
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMin = 0;
+            window.myLine.config.options.scales.yAxes[0].ticks.suggestedMax = 1;
+            window.myLine.config.options.scales.yAxes[0].ticks.stepSize = 1;
     }
 
     if(window.sensorDataSets != undefined && window.sensorDataSets.hasData) {
@@ -391,16 +352,23 @@ function genGraph(zeitraumString) {
 
 function updateSensorSelect() {
     var sensorSelect = document.getElementById("sensorSelect");
-    sensorSelect.options.remove(0);
-    sensorSelect.options.remove(0);
-    sensorSelect.options.remove(0);
+    for (var i in sensorSelect.options) {
+        sensorSelect.options.remove(0);
+    }
 
-    for (var i in window.sensorDataSets) {
+    for (var i in window.sensorDataSets.sensors) {
         var opt = document.createElement("option");
-        opt.text = i.ID;
-        opt.innerHTML = i.ID;
-        opt.value = i.ID;
+        opt.text = window.sensorDataSets.sensors[i].sID;
+        opt.innerHTML = window.sensorDataSets.sensors[i].sID;
+        opt.value = window.sensorDataSets.sensors[i].sID;
+        opt.selected = true;
         sensorSelect.options.add(opt);
     }
+    var opt = document.createElement("option");
+    opt.text = "Durchschnitt";
+    opt.innerHTML = "Durchschnitt";
+    opt.value = 0;
+    sensorSelect.options.add(opt);
+
     $('#sensorSelect').material_select();
 }

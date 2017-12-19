@@ -118,11 +118,13 @@
     };
     $(document).ready(function () {
         $('select').material_select();
+
+        window.sensorDataSets = [];
+        window.name = "";
         setBaseConfig();
         getData();
-        //updateSensorSelect();
-        $('select').material_select();
         updateGraph();
+        updateSensorSelect();
     });
 </script>
 </body>
