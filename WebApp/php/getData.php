@@ -8,7 +8,7 @@ function getFromDB(){
     $arg2 = $_GET["endDateTime"];
     $conn = getConnection();
     
-    $sql = "SELECT `sensorID`,`typ`,`datetime`,`value` FROM `messwerte` WHERE `datetime`>? AND `datetime`<? ORDER BY `sensorID`,`typ`,`datetime`";
+    $sql = "SELECT `sensorID`,`typ`,DATE_FORMAT(datetime, '%d.%m.%Y %H:%i') as datetime,`value` FROM `messwerte` WHERE `datetime`>? AND `datetime`<? ORDER BY `sensorID`,`typ`,`datetime`";
     
     $fromDatetime = $arg1;
     $untilDatetime = $arg2;

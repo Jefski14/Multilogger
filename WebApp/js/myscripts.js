@@ -1,6 +1,6 @@
 function getNiceDate() {
     var today = new Date();
-    return today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+    return today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear();
 }
 
 function getCurrentTime() {
@@ -97,9 +97,6 @@ function getData(start, end) {
     var d = new Date();
     var from = d.getYear() + "-" + d.getMonth() +"-" + d.getDate() + " " + "00:00:00";
     var until = d.getHours() +":"+d.getMinutes()+":00";
-    //var from = "2017-12-01 11:14:50";
-    //var until = "2017-12-01 23:59:59";
-
     if (start != undefined && end != undefined) {
         from = start;
         until = end;
@@ -161,15 +158,15 @@ function structureData(sensorData) {
                 currentType = sensorData[i].typ;
                 if (currentType == "1") { //If sensorID and type stay the same, push the current value in the dataset
                     sensorDataBlock.t1data.push(sensorData[i].value);
-                    sensorDataBlock.t1dTime.push(sensorData[i].datetime.slice(0, -3));
+                    sensorDataBlock.t1dTime.push(sensorData[i].datetime);
                 }
                 else if (currentType == "2") { //Switch to new dataset with other type
                     sensorDataBlock.t2data.push(sensorData[i].value);
-                    sensorDataBlock.t2dTime.push(sensorData[i].datetime.slice(0, -3));
+                    sensorDataBlock.t2dTime.push(sensorData[i].datetime);
                 }
                 else if (currentType == "3") {
                     sensorDataBlock.t3data.push(sensorData[i].value);
-                    sensorDataBlock.t3dTime.push(sensorData[i].datetime.slice(0, -3));
+                    sensorDataBlock.t3dTime.push(sensorData[i].datetime);
                 }
             }
             else { //next Sensor
@@ -332,13 +329,18 @@ function updateGraph() {
     window.myLine.update(0);
 }
 
+function changeDateFormat(date) {
+    var dateArr = date.split(".");
+    return dateArr[2] + "-" + dateArr[1] + "-" + dateArr[0];
+}
+
 function genOwnGraph() {
     var startTime = document.getElementById("StartTimePicker").value;
     var endTime = document.getElementById("EndTimePicker").value;
     var startDate = document.getElementById("StartDatePicker").value;
     var endDate = document.getElementById("EndDatePicker").value;
     //"2017-12-01 11:14:50"
-    var zeitraum = startDate + " " + startTime + ":00" + "&" + endDate + " " + endTime + ":00";
+    var zeitraum = changeDateFormat(startDate) + " " + startTime + ":00" + "&" + changeDateFormat(endDate) + " " + endTime + ":00";
 
     window.name = zeitraum;
     location.href = "owngraph.html";

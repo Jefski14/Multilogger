@@ -11,25 +11,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myscripts.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myscripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/myscripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3604">
-              <caret line="348" column="38" lean-forward="true" selection-start-line="348" selection-start-column="38" selection-end-line="348" selection-end-column="38" />
+            <state relative-caret-position="-223">
+              <caret line="333" column="60" lean-forward="false" selection-start-line="333" selection-start-column="60" selection-end-line="333" selection-end-column="60" />
               <folding>
                 <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
                 <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-                <element signature="n#!!block;n#structureData#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="getData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/getData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="73" lean-forward="false" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+              <folding>
+                <marker date="1513708155227" expanded="true" signature="193:366" ph="SELECT `sens... messwerte" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="119" column="38" lean-forward="true" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
+            <state relative-caret-position="568">
+              <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
               <folding>
                 <marker date="1513707272954" expanded="true" signature="5132:5191" ph="{...}" />
               </folding>
@@ -37,11 +48,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="graphgen.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/graphgen.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="146" column="46" lean-forward="true" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="owngraph.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/owngraph.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="120" column="10" lean-forward="false" selection-start-line="120" selection-start-column="10" selection-end-line="120" selection-end-column="10" />
+            <state relative-caret-position="395">
+              <caret line="120" column="66" lean-forward="true" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -65,6 +86,7 @@
       <find>#26a69a</find>
       <find>row</find>
       <find>zero</find>
+      <find>getNiceDate</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -88,12 +110,14 @@
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/html/settings.html" />
         <option value="$PROJECT_DIR$/js/materialize.js" />
-        <option value="$PROJECT_DIR$/html/graphgen.html" />
         <option value="chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/include.postload.js" />
         <option value="$PROJECT_DIR$/html/graphFrameTest.html" />
+        <option value="$PROJECT_DIR$/html/index.html" />
+        <option value="$PROJECT_DIR$/php/changeSensornames.php" />
+        <option value="$PROJECT_DIR$/php/getData.php" />
+        <option value="$PROJECT_DIR$/html/graphgen.html" />
         <option value="$PROJECT_DIR$/js/myscripts.js" />
         <option value="$PROJECT_DIR$/html/owngraph.html" />
-        <option value="$PROJECT_DIR$/html/index.html" />
       </list>
     </option>
   </component>
@@ -124,6 +148,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,7 +180,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -226,12 +250,14 @@
       <workItem from="1513149276069" duration="1678000" />
       <workItem from="1513332339857" duration="8755000" />
       <workItem from="1513620703540" duration="6589000" />
-      <workItem from="1513694798985" duration="5754000" />
+      <workItem from="1513694798985" duration="5995000" />
+      <workItem from="1513707710271" duration="139000" />
+      <workItem from="1513708033982" duration="1030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80262000" />
+    <option name="totallyTimeSpent" value="81672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="0" width="935" height="1087" extended-state="0" />
@@ -246,7 +272,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31729785" sideWeight="0.49618322" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31729785" sideWeight="0.49618322" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -264,7 +290,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="78" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -284,7 +310,6 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="n#!!block;n#structureData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -322,7 +347,6 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="n#!!block;n#structureData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -360,7 +384,6 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="n#!!block;n#structureData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -397,7 +420,6 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="n#!!block;n#structureData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -420,7 +442,6 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="n#!!block;n#structureData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -442,7 +463,6 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="n#!!block;n#structureData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -491,18 +511,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/test.php" />
-    <entry file="file://$PROJECT_DIR$/php/changeSensornames.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-          <folding>
-            <marker date="1512731352204" expanded="true" signature="349:401" ph="UPDATE `sens... " />
-            <marker date="1512731352204" expanded="true" signature="938:986" ph="UPDATE `sens... " />
-            <marker date="1512731352204" expanded="true" signature="1273:1316" ph="SELECT `sens... sensornames" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/chartmaker.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -546,24 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/getData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding>
-            <marker date="1512731352219" expanded="true" signature="193:325" ph="SELECT `sens... messwerte" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/graphgen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/graphFrameTest.html" />
     <entry file="file://$PROJECT_DIR$/js/materialize.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -585,32 +575,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/owngraph.html">
+    <entry file="file://$PROJECT_DIR$/php/changeSensornames.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="120" column="10" lean-forward="false" selection-start-line="120" selection-start-column="10" selection-end-line="120" selection-end-column="10" />
+        <state relative-caret-position="797">
+          <caret line="75" column="2" lean-forward="true" selection-start-line="75" selection-start-column="2" selection-end-line="75" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/index.html">
+    <entry file="file://$PROJECT_DIR$/php/getData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="119" column="38" lean-forward="true" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
+        <state relative-caret-position="170">
+          <caret line="10" column="73" lean-forward="false" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
           <folding>
-            <marker date="1513707272954" expanded="true" signature="5132:5191" ph="{...}" />
+            <marker date="1513708155227" expanded="true" signature="193:366" ph="SELECT `sens... messwerte" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/myscripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3604">
-          <caret line="348" column="38" lean-forward="true" selection-start-line="348" selection-start-column="38" selection-end-line="348" selection-end-column="38" />
+        <state relative-caret-position="-223">
+          <caret line="333" column="60" lean-forward="false" selection-start-line="333" selection-start-column="60" selection-end-line="333" selection-end-column="60" />
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-            <element signature="n#!!block;n#structureData#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/owngraph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="120" column="66" lean-forward="true" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/graphgen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="146" column="46" lean-forward="true" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
+          <folding>
+            <marker date="1513707272954" expanded="true" signature="5132:5191" ph="{...}" />
           </folding>
         </state>
       </provider>
