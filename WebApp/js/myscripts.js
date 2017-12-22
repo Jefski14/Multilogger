@@ -111,7 +111,7 @@ function getData(start, end) {
             var sensorDataSets = [];
             //window.sensorDataSets = structureData(jdata);
             window.sensorDataSets= structureData(jdata);
-            console.log(structureData(jdata));
+            //console.log(structureData(jdata));
             var time = [];
             for (var i in jdata) {
                 time.push(jdata[i].datetime);
@@ -394,7 +394,7 @@ function getSensorNames() {
         method: "GET",
         success: function (data) {
             jdata = JSON.parse(data);
-            console.log(jdata);
+            //console.log(jdata);
             window.sensorNames= jdata;
         },
         error: function (data) {
