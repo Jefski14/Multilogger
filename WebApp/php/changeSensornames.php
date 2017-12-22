@@ -26,6 +26,30 @@ function changeSensorName($sensorID,$newName){
 }
 
 /**
+ * Change the name which is associated to the sensor ID
+ *
+ * If the ID is not in use, this function doesn't change anything
+ * @param ID des Sensors $sensorID
+ * @param Neuer Name f�r diesen Sensor $newName
+ *
+ */
+function createSensorName($sensorID,$newName){
+
+    $conn = getConnection();
+    $sql = "INSERT INTO `sensornames` (`sensorID`, `Name`) VALUES (?,?);";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("si",$sensor_ID,$Name);
+
+    $Name = $newName;
+    $sensor_ID = $sensorID;
+    $stmt->execute();
+
+    $stmt->close();
+    $conn->close();
+}
+
+
+/**
  * Change the name which is associated to the sensor name
  *
  * If the name is not in use, this function doesn't change anything

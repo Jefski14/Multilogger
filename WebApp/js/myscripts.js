@@ -111,7 +111,7 @@ function getData(start, end) {
             var sensorDataSets = [];
             //window.sensorDataSets = structureData(jdata);
             window.sensorDataSets= structureData(jdata);
-            //console.log(structureData(jdata));
+            console.log(structureData(jdata));
             var time = [];
             for (var i in jdata) {
                 time.push(jdata[i].datetime);
@@ -129,6 +129,7 @@ function getSensorName(id) {
             return window.sensorNames[i].Name;
         }
     }
+    createSensorNamePHP(id);
     return id;
 }
 
@@ -446,8 +447,22 @@ function updateSensorNamePHP(id,name) {
         method: "GET",
         success: function (data) {
             jdata = JSON.parse(data);
-            //console.log(jdata);
+            console.log(jdata);
             window.sensorNames= jdata;
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+function createSensorNamePHP(id) {
+    $.ajax({
+        async: false, //zum setzen der
+        url: "/WebApp/php/newSensorName.php?ID="+id,
+        method: "GET",
+        success: function (data) {
+            console.log(data);
         },
         error: function (data) {
             console.log(data);
