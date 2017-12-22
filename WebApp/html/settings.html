@@ -29,7 +29,7 @@
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="graphgen.html">Eigener Graph</a></li>
-                <li><a href="settings.html">Einstellung</a></li>
+                <li><a href="settings.html">Einstellungen</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -49,29 +49,15 @@
                         <th>Sensorname</th>
                         <th>Sensor ID</th>
                         <th>Neuer Name</th>
+                        <th></th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>Sensor 1</td>
-                        <td>197964</td>
-                        <td class="td-withfield">
-                            <input type="text" id="sensor1Name">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sensor 2</td>
-                        <td>197964</td>
-                        <td class="td-withfield">
-                            <input type="text" id="sensor2Name">
-                        </td>
-                    </tr>
-
+                    <tbody id="settingsBody">
                     </tbody>
                 </table>
             </div>
             <div class="col s12 right-align">
-                <button class="btn waves-effect waves-light orange">Bestätigen</button>
+                <button class="btn waves-effect waves-light orange" onclick="updateSensorName()">Übernehmen</button>
             </div>
         </div>
     </div>
@@ -111,7 +97,7 @@
 <script>
     $(document).ready(function () {
         $('select').material_select();
-        $('input#input_text, textarea#textarea1').characterCounter();
+        genSettings();
     });
 </script>
 </body>

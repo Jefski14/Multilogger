@@ -7,7 +7,7 @@ include 'getConnection.php';
  *
  * If the ID is not in use, this function doesn't change anything
  * @param ID des Sensors $sensorID
- * @param Neuer Name für diesen Sensor $newName
+ * @param Neuer Name fï¿½r diesen Sensor $newName
  *
  */
 function changeSensorName($sensorID,$newName){
@@ -30,7 +30,7 @@ function changeSensorName($sensorID,$newName){
  *
  * If the name is not in use, this function doesn't change anything
  * @param Name des Sensors $oldName
- * @param Neuer Name für diesen Sensor $newName
+ * @param Neuer Name fï¿½r diesen Sensor $newName
  *
  */
 function changeSensorNameByName($oldName,$newName){
@@ -47,7 +47,6 @@ function changeSensorNameByName($oldName,$newName){
     $stmt->close();
     $conn->close();
 }
-
 
 
 function getSensorNames(){

@@ -123,6 +123,15 @@ function getData(start, end) {
     });
 }
 
+function getSensorName(id) {
+    for (var i in window.sensorNames) {
+        if(id == window.sensorNames[i].ID) {
+            return window.sensorNames[i].Name;
+        }
+    }
+    return id;
+}
+
 /**
  * structureData: Structures the data of a given array with sensordata
  * sensordata must be structure like this: {"ID":197964,"typ":1,"datetime":"2017-12-01 11:59:00","value":"21.1600"}
@@ -130,6 +139,7 @@ function getData(start, end) {
  * @returns {Array}
  */
 function structureData(sensorData) {
+    getSensorNames();
     var dataArray = {
         hasData: false,
         sensors: [],
@@ -144,6 +154,7 @@ function structureData(sensorData) {
         var currentType = sensorData[0].typ;
         var firstType = currentType;
         var sensorDataBlock = {
+            name: getSensorName(currentID),
             sID: currentID,
             color: "rgb(54, 162, 235)",
             t1data: [],
@@ -175,6 +186,7 @@ function structureData(sensorData) {
                 dataArray.sensors.push(sensorDataBlock);
                 currentID = sensorData[i].ID;
                 var sensorDataBlock = {
+                    name: getSensorName(currentID),
                     sID: currentID,
                     color: "rgb(54, 162, 235)",
                     t1data: [],
@@ -277,7 +289,7 @@ function updateGraph() {
                 if (window.sensorDataSets.sensors[sensorIndex] != undefined) {
                     window.myLine.config.data.datasets.push(
                         {
-                            label: window.sensorDataSets.sensors[sensorIndex].sID,
+                            label: window.sensorDataSets.sensors[sensorIndex].name,
                             backgroundColor: window.sensorDataSets.sensors[sensorIndex].color,
                             borderColor: window.sensorDataSets.sensors[sensorIndex].color,
                             data: getDataByType(sensorIndex , typeSelect.selectedIndex),
@@ -360,8 +372,8 @@ function updateSensorSelect() {
 
     for (var i in window.sensorDataSets.sensors) {
         var opt = document.createElement("option");
-        opt.text = window.sensorDataSets.sensors[i].sID;
-        opt.innerHTML = window.sensorDataSets.sensors[i].sID;
+        opt.text = window.sensorDataSets.sensors[i].name;
+        opt.innerHTML = window.sensorDataSets.sensors[i].name;
         opt.value = window.sensorDataSets.sensors[i].sID;
         opt.selected = true;
         sensorSelect.options.add(opt);
@@ -373,4 +385,82 @@ function updateSensorSelect() {
     sensorSelect.options.add(opt);
 
     $('#sensorSelect').material_select();
+}
+
+function getSensorNames() {
+    $.ajax({
+        async: false, //zum setzen der
+        url: "/WebApp/php/getSensornames.php",
+        method: "GET",
+        success: function (data) {
+            jdata = JSON.parse(data);
+            console.log(jdata);
+            window.sensorNames= jdata;
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+function genSettings() {
+    getSensorNames();
+    var tbody = document.getElementById("settingsBody");
+    tbody.innerHTML = "";
+    for (var i in window.sensorNames) {
+        var tr = tbody.insertRow(0);
+        for (var j = 0; j < 4; j++) {
+            var td = tr.insertCell();
+            if(j == 0) {
+                td.appendChild(document.createTextNode(window.sensorNames[i].Name));
+            }
+            else if(j == 1) {
+                td.appendChild(document.createTextNode(window.sensorNames[i].ID));
+            }
+            else if(j==2) {
+                var input = document.createElement("input");
+                td.setAttribute("class","td-withfield");
+                input.setAttribute("type", "text");
+                input.setAttribute("id","Name" + window.sensorNames[i].ID);
+                td.appendChild(input);
+            }
+            else {
+                var btn = document.createElement("a");
+                btn.setAttribute("class","btn-floating waves-effect waves-light orange");
+                btn.setAttribute("onclick", "updateSensorName("+ window.sensorNames[i].ID +")");
+                var i = document.createElement("i");
+                i.setAttribute("class", "material-icons");
+                i.appendChild(document.createTextNode("done"));
+                btn.appendChild(i);
+                td.appendChild(btn);
+            }
+        }
+
+    }
+}
+
+function updateSensorNamePHP(id,name) {
+    $.ajax({
+        async: false, //zum setzen der
+        url: "/WebApp/php/changeSensornameByID.php?ID="+id+"&Name="+name,
+        method: "GET",
+        success: function (data) {
+            jdata = JSON.parse(data);
+            //console.log(jdata);
+            window.sensorNames= jdata;
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+function updateSensorName(id) {
+    //console.log(id);
+    var newName = document.getElementById("Name" + id);
+    if(newName.value.length > 0) {
+        //console.log(newName.value);
+        updateSensorNamePHP(id,newName.value);
+    }
+    genSettings();
 }

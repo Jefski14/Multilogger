@@ -14,55 +14,48 @@
       <file leaf-file-name="myscripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/myscripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-223">
-              <caret line="333" column="60" lean-forward="false" selection-start-line="333" selection-start-column="60" selection-end-line="333" selection-end-column="60" />
+            <state relative-caret-position="291">
+              <caret line="122" column="7" lean-forward="true" selection-start-line="122" selection-start-column="7" selection-end-line="122" selection-end-column="7" />
               <folding>
                 <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
                 <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
+                <element signature="n#!!block;n#getSensorIndex#0" expanded="false" />
+                <element signature="n#!!block;n#getDataByType#0" expanded="false" />
+                <element signature="n#!!block;n#updateSensorSelect#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getData.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/getData.php">
+      <file leaf-file-name="changeSensornames.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/changeSensornames.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="73" lean-forward="false" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+            <state relative-caret-position="204">
+              <caret line="12" column="46" lean-forward="true" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
               <folding>
-                <marker date="1513708155227" expanded="true" signature="193:366" ph="SELECT `sens... messwerte" />
+                <marker date="1513935778831" expanded="true" signature="349:401" ph="UPDATE `sens... " />
+                <marker date="1513935778831" expanded="true" signature="938:986" ph="UPDATE `sens... " />
+                <marker date="1513935778831" expanded="true" signature="1272:1315" ph="SELECT `sens... sensornames" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/html/index.html">
+      <file leaf-file-name="changeSensornameByID.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/changeSensornameByID.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
-              <folding>
-                <marker date="1513707272954" expanded="true" signature="5132:5191" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graphgen.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/graphgen.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="146" column="46" lean-forward="true" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+            <state relative-caret-position="85">
+              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="owngraph.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/owngraph.html">
+      <file leaf-file-name="settings.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/settings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="120" column="66" lean-forward="true" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
+            <state relative-caret-position="527">
+              <caret line="31" column="57" lean-forward="false" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -108,16 +101,18 @@
         <option value="$PROJECT_DIR$/html/ajaxtest.php" />
         <option value="$PROJECT_DIR$/css/materialize.css" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/html/settings.html" />
         <option value="$PROJECT_DIR$/js/materialize.js" />
         <option value="chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/include.postload.js" />
         <option value="$PROJECT_DIR$/html/graphFrameTest.html" />
         <option value="$PROJECT_DIR$/html/index.html" />
-        <option value="$PROJECT_DIR$/php/changeSensornames.php" />
         <option value="$PROJECT_DIR$/php/getData.php" />
         <option value="$PROJECT_DIR$/html/graphgen.html" />
-        <option value="$PROJECT_DIR$/js/myscripts.js" />
         <option value="$PROJECT_DIR$/html/owngraph.html" />
+        <option value="$PROJECT_DIR$/php/getSensornames.php" />
+        <option value="$PROJECT_DIR$/php/changeSensornames.php" />
+        <option value="$PROJECT_DIR$/php/changeSensornameByID.php" />
+        <option value="$PROJECT_DIR$/js/myscripts.js" />
+        <option value="$PROJECT_DIR$/html/settings.html" />
       </list>
     </option>
   </component>
@@ -148,6 +143,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -180,7 +176,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -200,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.owngraph.html">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration name="ajaxtest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/ajaxtest.html" />
     <configuration name="ajaxtest.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/ajaxtest.php" />
     <configuration name="graphFrameTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost/WebApp/html/graphFrameTest.html" />
@@ -215,8 +210,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.owngraph.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.owngraph.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.graphFrameTest.html" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.html" />
         <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.ajaxtest.php" />
@@ -252,18 +247,19 @@
       <workItem from="1513620703540" duration="6589000" />
       <workItem from="1513694798985" duration="5995000" />
       <workItem from="1513707710271" duration="139000" />
-      <workItem from="1513708033982" duration="1030000" />
+      <workItem from="1513708033982" duration="1114000" />
+      <workItem from="1513934075302" duration="7947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81672000" />
+    <option name="totallyTimeSpent" value="89703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="0" width="935" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22959739" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21653971" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32036847" sideWeight="0.5038168" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -272,7 +268,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31729785" sideWeight="0.49618322" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31729785" sideWeight="0.49618322" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -290,30 +286,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="79" />
+      <option name="time" value="81" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/phpjstest.php" />
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/myscripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="126" column="45" lean-forward="false" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
-          <folding>
-            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1904">
@@ -347,6 +324,9 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
+            <element signature="n#!!block;n#getSensorIndex#0" expanded="false" />
+            <element signature="n#!!block;n#getDataByType#0" expanded="false" />
+            <element signature="n#!!block;n#updateSensorSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -384,6 +364,9 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
+            <element signature="n#!!block;n#getSensorIndex#0" expanded="false" />
+            <element signature="n#!!block;n#getDataByType#0" expanded="false" />
+            <element signature="n#!!block;n#updateSensorSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -420,6 +403,9 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
+            <element signature="n#!!block;n#getSensorIndex#0" expanded="false" />
+            <element signature="n#!!block;n#getDataByType#0" expanded="false" />
+            <element signature="n#!!block;n#updateSensorSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -442,6 +428,9 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
+            <element signature="n#!!block;n#getSensorIndex#0" expanded="false" />
+            <element signature="n#!!block;n#getDataByType#0" expanded="false" />
+            <element signature="n#!!block;n#updateSensorSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -463,6 +452,9 @@
           <folding>
             <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
             <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
+            <element signature="n#!!block;n#getSensorIndex#0" expanded="false" />
+            <element signature="n#!!block;n#getDataByType#0" expanded="false" />
+            <element signature="n#!!block;n#updateSensorSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -502,14 +494,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/ajaxtest.php" />
-    <entry file="file://$PROJECT_DIR$/php/getConnection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/test.php" />
     <entry file="file://$PROJECT_DIR$/html/chartmaker.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -530,13 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
           <caret line="3410" column="18" lean-forward="false" selection-start-line="3410" selection-start-column="18" selection-end-line="3410" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/settings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -575,46 +552,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/changeSensornames.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="75" column="2" lean-forward="true" selection-start-line="75" selection-start-column="2" selection-end-line="75" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/getData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="73" lean-forward="false" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
-          <folding>
-            <marker date="1513708155227" expanded="true" signature="193:366" ph="SELECT `sens... messwerte" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/myscripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
-          <caret line="333" column="60" lean-forward="false" selection-start-line="333" selection-start-column="60" selection-end-line="333" selection-end-column="60" />
-          <folding>
-            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
-            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/owngraph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="120" column="66" lean-forward="true" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/graphgen.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="2482">
           <caret line="146" column="46" lean-forward="true" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
           <folding />
         </state>
@@ -622,11 +562,97 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="126" column="29" lean-forward="true" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
+        <state relative-caret-position="657">
+          <caret line="122" column="25" lean-forward="true" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
           <folding>
             <marker date="1513707272954" expanded="true" signature="5132:5191" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/owngraph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="120" column="66" lean-forward="true" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/insertData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512731352224" expanded="true" signature="1289:1369" ph="INSERT INTO `messwerte`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getSensornames.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/changeSensornames.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="46" lean-forward="true" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+          <folding>
+            <marker date="1513935778831" expanded="true" signature="349:401" ph="UPDATE `sens... " />
+            <marker date="1513935778831" expanded="true" signature="938:986" ph="UPDATE `sens... " />
+            <marker date="1513935778831" expanded="true" signature="1272:1315" ph="SELECT `sens... sensornames" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="33" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <marker date="1513708155227" expanded="true" signature="193:366" ph="SELECT `sens... messwerte" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/changeSensornameByID.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/myscripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="122" column="7" lean-forward="true" selection-start-line="122" selection-start-column="7" selection-end-line="122" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#updateGraphInterpolation#0" expanded="false" />
+            <element signature="n#!!block;n#setBaseConfig#0" expanded="false" />
+            <element signature="n#!!block;n#getSensorIndex#0" expanded="false" />
+            <element signature="n#!!block;n#getDataByType#0" expanded="false" />
+            <element signature="n#!!block;n#updateSensorSelect#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="57" lean-forward="false" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
