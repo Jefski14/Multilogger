@@ -35,11 +35,9 @@ $typ      = urldecode($args[5]);
 
 $date = str_replace("'", " ", $date);
 $time = str_replace("'", " ", $time);
-$device  = str_replace("'", " ", $device);
-$temperature = str_replace("'", " ", $temperature);
 
 $dateFormated = explode('-', $date);
-$datetime = $dateFormated[2].'-'.$dateFormated[1].'-'.$dateFormated[0]. " ".$time;
+$datetime = $dateFormated[0].'-'.$dateFormated[1].'-'.$dateFormated[2]. " ".$time;
 
 // parse multilogger data-format to mysql date format
 if($datetime[5]== " "){
