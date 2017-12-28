@@ -141,7 +141,7 @@ function genTimeStamps(from,until) {
     var bis = new Date(until);
     var timespamps = [];
     while(von < bis) {
-        timespamps.push(von.getDate() + "." + von.getMonth() + "." + von.getFullYear() + " " + lead(von.getHours()) + ":" + lead(von.getMinutes()));
+        timespamps.push(von.getDate() + "." + (von.getMonth()+1) + "." + von.getFullYear() + " " + lead(von.getHours()) + ":" + lead(von.getMinutes()));
         von.setMinutes(von.getMinutes()+1);
     }
     return timespamps;
