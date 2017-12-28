@@ -58,7 +58,9 @@ function setBaseConfig() {
                     },
                     ticks: {
                         maxRotation: 90,
-                        minRotation: 0
+                        minRotation: 0,
+                        autoSkip: true,
+                        maxTicksLimit: 10,
                     }
                 }],
                 yAxes: [{
@@ -95,8 +97,8 @@ window.sensorDataSets = {};
 function getData(start, end) {
     // Required date format: yyyy-mm-dd hh:mm:ss
     var d = new Date();
-    var from = d.getYear() + "-" + d.getMonth() +"-" + d.getDate() + " " + "00:00:00";
-    var until = d.getHours() +":"+d.getMinutes()+":00";
+    var from = d.getFullYear() + "-" + (d.getMonth()+1) +"-" + d.getDate() + " " + "00:00:00";
+    var until = d.getFullYear() + "-" + (d.getMonth()+1) +"-" + d.getDate() + " " +d.getHours() +":"+d.getMinutes()+":00";
     if (start != undefined && end != undefined) {
         from = start;
         until = end;
@@ -110,8 +112,8 @@ function getData(start, end) {
             jdata = JSON.parse(data);
             var sensorDataSets = [];
             //window.sensorDataSets = structureData(jdata);
-            window.sensorDataSets= structureData(jdata);
-            console.log(structureData(jdata));
+            window.sensorDataSets= structureData(jdata,from,until);
+            //console.log(structureData(jdata));
             var time = [];
             for (var i in jdata) {
                 time.push(jdata[i].datetime);
@@ -133,18 +135,34 @@ function getSensorName(id) {
     return id;
 }
 
+
+function genTimeStamps(from,until) {
+    var von = new Date(from);
+    var bis = new Date(until);
+    var timespamps = [];
+    while(von < bis) {
+        timespamps.push(von.getDate() + "." + von.getMonth() + "." + von.getFullYear() + " " + lead(von.getHours()) + ":" + lead(von.getMinutes()));
+        von.setMinutes(von.getMinutes()+1);
+    }
+    return timespamps;
+}
+
 /**
  * structureData: Structures the data of a given array with sensordata
- * sensordata must be structure like this: {"ID":197964,"typ":1,"datetime":"2017-12-01 11:59:00","value":"21.1600"}
+ * sensordata must be structure like this: {"ID":197964,"typ":1,"datetime":"2017-12-01 11:59","value":"21.1600"}
  * @param sensorData -> array of sensordata
  * @returns {Array}
  */
-function structureData(sensorData) {
+function structureData(sensorData,from,until) {
+    console.log(genTimeStamps(from,until));
+    var timestamps = genTimeStamps(from,until);
     getSensorNames();
     var dataArray = {
         hasData: false,
         sensors: [],
+        timeStamps: [],
     };
+    dataArray.timeStamps = genTimeStamps(from,until);
     if(sensorData == undefined || sensorData[0] == undefined || sensorData == {}) {
         dataArray.hasData = false;
     }
@@ -276,6 +294,7 @@ function calcAvg(type) {
 function updateGraph() {
     window.myLine.config.data.datasets = [];
     //update Data
+    console.log(window.sensorDataSets);
     var sensorSelect = document.getElementById("sensorSelect");
     var typeSelect = document.getElementById("typeSelect");
     for (var i = 0; i < sensorSelect.options.length; i++) {
@@ -333,8 +352,8 @@ function updateGraph() {
     }
 
     if(window.sensorDataSets != undefined && window.sensorDataSets.hasData) {
-        document.getElementById("currentDataTitle").innerHTML = "Daten vom " + window.sensorDataSets.sensors[0].t1dTime[0];
-        window.myLine.config.data.labels = window.sensorDataSets.sensors[0].t1dTime;
+        document.getElementById("currentDataTitle").innerHTML = "Daten vom " + window.sensorDataSets.timeStamps[0];
+        window.myLine.config.data.labels = window.sensorDataSets.timeStamps;
     }
     else {
         document.getElementById("currentDataTitle").innerHTML = "Es sind keine Daten vorhanden!";
