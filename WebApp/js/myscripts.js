@@ -94,11 +94,12 @@ function setBaseConfig() {
  * the sensordata gets structured and saved to the window.sensorDataSets variable
  */
 window.sensorDataSets = {};
+
 function getData(start, end) {
     // Required date format: yyyy-mm-dd hh:mm:ss
     var d = new Date();
-    var from = d.getFullYear() + "-" + (d.getMonth()+1) +"-" + d.getDate() + " " + "00:00:00";
-    var until = d.getFullYear() + "-" + (d.getMonth()+1) +"-" + d.getDate() + " " +d.getHours() +":"+d.getMinutes()+":00";
+    var from = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + "00:00:00";
+    var until = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":00";
     if (start != undefined && end != undefined) {
         from = start;
         until = end;
@@ -106,13 +107,13 @@ function getData(start, end) {
 
     $.ajax({
         async: false, //zum setzen der
-        url: "/WebApp/php/getData.php?startDateTime="+from+"&endDateTime="+until,
+        url: "/WebApp/php/getData.php?startDateTime=" + from + "&endDateTime=" + until,
         method: "GET",
         success: function (data) {
             jdata = JSON.parse(data);
             var sensorDataSets = [];
             //window.sensorDataSets = structureData(jdata);
-            window.sensorDataSets= structureData(jdata,from,until);
+            window.sensorDataSets = structureData(jdata, from, until);
             //console.log(structureData(jdata));
             var time = [];
             for (var i in jdata) {
@@ -127,7 +128,7 @@ function getData(start, end) {
 
 function getSensorName(id) {
     for (var i in window.sensorNames) {
-        if(id == window.sensorNames[i].ID) {
+        if (id == window.sensorNames[i].ID) {
             return window.sensorNames[i].Name;
         }
     }
@@ -136,15 +137,25 @@ function getSensorName(id) {
 }
 
 
-function genTimeStamps(from,until) {
+function genTimeStamps(from, until) {
     var von = new Date(from);
     var bis = new Date(until);
     var timespamps = [];
-    while(von < bis) {
-        timespamps.push(von.getDate() + "." + (von.getMonth()+1) + "." + von.getFullYear() + " " + lead(von.getHours()) + ":" + lead(von.getMinutes()));
-        von.setMinutes(von.getMinutes()+1);
+    while (von < bis) {
+        timespamps.push(von.getDate() + "." + (von.getMonth() + 1) + "." + von.getFullYear() + " " + lead(von.getHours()) + ":" + lead(von.getMinutes()));
+        von.setMinutes(von.getMinutes() + 1);
     }
     return timespamps;
+}
+
+function convertToJapan(timestampGer) {
+    var timestamp = timestampGer.split(".");
+    var yearTime = timestamp[2].split(" ");
+    return yearTime[0] + "-" + timestamp[1] + "-" + timestamp[0] + " " + yearTime[1];
+}
+
+function printDate(von) {
+    return von.getDate() + "." + (von.getMonth() + 1) + "." + von.getFullYear() + " " + lead(von.getHours()) + ":" + lead(von.getMinutes());
 }
 
 /**
@@ -153,21 +164,21 @@ function genTimeStamps(from,until) {
  * @param sensorData -> array of sensordata
  * @returns {Array}
  */
-function structureData(sensorData,from,until) {
-    console.log(genTimeStamps(from,until));
-    var timestamps = genTimeStamps(from,until);
+function structureData(sensorData, from, until) {
+    console.log(genTimeStamps(from, until));
+    var timestamps = genTimeStamps(from, until);
     getSensorNames();
     var dataArray = {
         hasData: false,
         sensors: [],
         timeStamps: [],
     };
-    dataArray.timeStamps = genTimeStamps(from,until);
-    if(sensorData == undefined || sensorData[0] == undefined || sensorData == {}) {
+    dataArray.timeStamps = genTimeStamps(from, until);
+    if (sensorData == undefined || sensorData[0] == undefined || sensorData == {}) {
         dataArray.hasData = false;
     }
     else {
-        var colors = ["rgb(201, 203, 207)","rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(255, 99, 132)", "rgb(75, 192, 192)", "rgb(255, 205, 86)"];
+        var colors = ["rgb(201, 203, 207)", "rgb(54, 162, 235)", "rgb(255, 159, 64)", "rgb(153, 102, 255)", "rgb(255, 99, 132)", "rgb(75, 192, 192)", "rgb(255, 205, 86)"];
         var currentID = sensorData[0].ID;
         var first = currentID;
         var currentType = sensorData[0].typ;
@@ -183,24 +194,62 @@ function structureData(sensorData,from,until) {
             t2dTime: [],
             t3dTime: []
         };
+        var nextDate = new Date(from);
         for (var i in sensorData) {
             if (currentID == sensorData[i].ID) {
                 currentType = sensorData[i].typ;
                 if (currentType == "1") { //If sensorID and type stay the same, push the current value in the dataset
-                    sensorDataBlock.t1data.push(sensorData[i].value);
-                    sensorDataBlock.t1dTime.push(sensorData[i].datetime);
+                    var sensorDate = new Date(convertToJapan(sensorData[i].datetime) + ":00");
+                    while (sensorDate > nextDate) {
+                        sensorDataBlock.t1data.push(null);
+                        sensorDataBlock.t1dTime.push(printDate(nextDate));
+                        nextDate.setMinutes(nextDate.getMinutes() + 1);
+                    }
+                    if (sensorDate.toString() == nextDate.toString()) {
+                        sensorDataBlock.t1data.push(sensorData[i].value);
+                        sensorDataBlock.t1dTime.push(sensorData[i].datetime);
+                        nextDate.setMinutes(nextDate.getMinutes() + 1);
+                    }
+                    //else SensorDate < NextDate -> überspring den zweiten wert bei selber minute
+
                 }
                 else if (currentType == "2") { //Switch to new dataset with other type
-                    sensorDataBlock.t2data.push(sensorData[i].value);
-                    sensorDataBlock.t2dTime.push(sensorData[i].datetime);
+                    var sensorDate = new Date(convertToJapan(sensorData[i].datetime) + ":00");
+                    while (sensorDate > nextDate) {
+                        sensorDataBlock.t2data.push(null);
+                        sensorDataBlock.t2dTime.push(printDate(nextDate));
+                        nextDate.setMinutes(nextDate.getMinutes() + 1);
+                    }
+                    if (sensorDate.toString() == nextDate.toString) {
+                        sensorDataBlock.t2data.push(sensorData[i].value);
+                        sensorDataBlock.t2dTime.push(sensorData[i].datetime);
+                        nextDate.setMinutes(nextDate.getMinutes() + 1);
+                    }
+                    //else SensorDate < NextDate -> überspring den zweiten wert bei selber minute
+
+                    //sensorDataBlock.t2data.push(sensorData[i].value);
+                    //sensorDataBlock.t2dTime.push(sensorData[i].datetime);
                 }
                 else if (currentType == "3") {
-                    sensorDataBlock.t3data.push(sensorData[i].value);
-                    sensorDataBlock.t3dTime.push(sensorData[i].datetime);
+                    var sensorDate = new Date(convertToJapan(sensorData[i].datetime) + ":00");
+                    while (sensorDate > nextDate) {
+                        sensorDataBlock.t3data.push(null);
+                        sensorDataBlock.t3dTime.push(printDate(nextDate));
+                        nextDate.setMinutes(nextDate.getMinutes() + 1);
+                    }
+                    if (sensorDate.toString() == nextDate.toString) {
+                        sensorDataBlock.t3data.push(sensorData[i].value);
+                        sensorDataBlock.t3dTime.push(sensorData[i].datetime);
+                        nextDate.setMinutes(nextDate.getMinutes() + 1);
+                    }
+
+                    //sensorDataBlock.t3data.push(sensorData[i].value);
+                    //sensorDataBlock.t3dTime.push(sensorData[i].datetime);
                 }
             }
             else { //next Sensor
-                sensorDataBlock.color = colors[colors.length -1];
+                nextDate = new Date(from);
+                sensorDataBlock.color = colors[colors.length - 1];
                 colors.pop();
                 dataArray.sensors.push(sensorDataBlock);
                 currentID = sensorData[i].ID;
@@ -217,7 +266,7 @@ function structureData(sensorData,from,until) {
                 };
             }
         }
-        sensorDataBlock.color = colors[colors.length -1];
+        sensorDataBlock.color = colors[colors.length - 1];
         colors.pop();
         dataArray.sensors.push(sensorDataBlock);
         dataArray.hasData = true;
@@ -231,8 +280,8 @@ function structureData(sensorData,from,until) {
  * @returns {*}
  */
 function getSensorIndex(id) {
-    for (var i in window.sensorDataSets.sensors){
-        if(window.sensorDataSets.sensors[i].sID == id){
+    for (var i in window.sensorDataSets.sensors) {
+        if (window.sensorDataSets.sensors[i].sID == id) {
             return i;
         }
     }
@@ -258,6 +307,7 @@ function getDataByType(sensorIndex, type) {
     }
 
 }
+
 /**
  * Calculates the Average of the Sensordata in current Datasets
  * @param type
@@ -267,11 +317,15 @@ function calcAvg(type) {
     var avg = [];
     for (var i = 0; i < window.myLine.config.data.datasets.length; i++) {
         for (var j = 0; j < window.myLine.config.data.datasets[i].data.length; j++) {
+            var wert = window.myLine.config.data.datasets[i].data[j];
+            if (wert == null) {
+               wert = 0;
+            }
             if (i == 0) {
-                avg[j] = window.myLine.config.data.datasets[i].data[j];
+                avg[j] = wert;
             }
             else {
-                avg[j] = parseFloat(avg[j]) + parseFloat(window.myLine.config.data.datasets[i].data[j]);
+                avg[j] = parseFloat(avg[j]) + parseFloat(wert);
             }
         }
     }
@@ -312,7 +366,7 @@ function updateGraph() {
                             label: window.sensorDataSets.sensors[sensorIndex].name,
                             backgroundColor: window.sensorDataSets.sensors[sensorIndex].color,
                             borderColor: window.sensorDataSets.sensors[sensorIndex].color,
-                            data: getDataByType(sensorIndex , typeSelect.selectedIndex),
+                            data: getDataByType(sensorIndex, typeSelect.selectedIndex),
                             fill: false
                         }
                     );
@@ -351,7 +405,7 @@ function updateGraph() {
             window.myLine.config.options.scales.yAxes[0].ticks.stepSize = 1;
     }
 
-    if(window.sensorDataSets != undefined && window.sensorDataSets.hasData) {
+    if (window.sensorDataSets != undefined && window.sensorDataSets.hasData) {
         document.getElementById("currentDataTitle").innerHTML = "Daten vom " + window.sensorDataSets.timeStamps[0];
         window.myLine.config.data.labels = window.sensorDataSets.timeStamps;
     }
@@ -415,7 +469,7 @@ function getSensorNames() {
         success: function (data) {
             jdata = JSON.parse(data);
             //console.log(jdata);
-            window.sensorNames= jdata;
+            window.sensorNames = jdata;
         },
         error: function (data) {
             console.log(data);
@@ -431,23 +485,23 @@ function genSettings() {
         var tr = tbody.insertRow(0);
         for (var j = 0; j < 4; j++) {
             var td = tr.insertCell();
-            if(j == 0) {
+            if (j == 0) {
                 td.appendChild(document.createTextNode(window.sensorNames[i].Name));
             }
-            else if(j == 1) {
+            else if (j == 1) {
                 td.appendChild(document.createTextNode(window.sensorNames[i].ID));
             }
-            else if(j==2) {
+            else if (j == 2) {
                 var input = document.createElement("input");
-                td.setAttribute("class","td-withfield");
+                td.setAttribute("class", "td-withfield");
                 input.setAttribute("type", "text");
-                input.setAttribute("id","Name" + window.sensorNames[i].ID);
+                input.setAttribute("id", "Name" + window.sensorNames[i].ID);
                 td.appendChild(input);
             }
             else {
                 var btn = document.createElement("a");
-                btn.setAttribute("class","btn-floating waves-effect waves-light orange");
-                btn.setAttribute("onclick", "updateSensorName("+ window.sensorNames[i].ID +")");
+                btn.setAttribute("class", "btn-floating waves-effect waves-light orange");
+                btn.setAttribute("onclick", "updateSensorName(" + window.sensorNames[i].ID + ")");
                 var i = document.createElement("i");
                 i.setAttribute("class", "material-icons");
                 i.appendChild(document.createTextNode("done"));
@@ -459,15 +513,15 @@ function genSettings() {
     }
 }
 
-function updateSensorNamePHP(id,name) {
+function updateSensorNamePHP(id, name) {
     $.ajax({
         async: false, //zum setzen der
-        url: "/WebApp/php/changeSensornameByID.php?ID="+id+"&Name="+name,
+        url: "/WebApp/php/changeSensornameByID.php?ID=" + id + "&Name=" + name,
         method: "GET",
         success: function (data) {
             jdata = JSON.parse(data);
             console.log(jdata);
-            window.sensorNames= jdata;
+            window.sensorNames = jdata;
         },
         error: function (data) {
             console.log(data);
@@ -478,7 +532,7 @@ function updateSensorNamePHP(id,name) {
 function createSensorNamePHP(id) {
     $.ajax({
         async: false, //zum setzen der
-        url: "/WebApp/php/newSensorName.php?ID="+id,
+        url: "/WebApp/php/newSensorName.php?ID=" + id,
         method: "GET",
         success: function (data) {
             console.log(data);
@@ -492,9 +546,9 @@ function createSensorNamePHP(id) {
 function updateSensorName(id) {
     //console.log(id);
     var newName = document.getElementById("Name" + id);
-    if(newName.value.length > 0) {
+    if (newName.value.length > 0) {
         //console.log(newName.value);
-        updateSensorNamePHP(id,newName.value);
+        updateSensorNamePHP(id, newName.value);
     }
     genSettings();
 }
