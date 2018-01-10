@@ -37,6 +37,7 @@ function setBaseConfig() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: true, //false removes the responsive issue but then the chart grows to infinity
             title: {
                 display: false,
                 text: 'Data from ' + getNiceDate()
@@ -72,7 +73,8 @@ function setBaseConfig() {
                     ticks: {
                         suggestedMin: 18,
                         suggestedMax: 24,
-                        //stepSize: 2
+                        maxTicksLimit: 5,
+                        stepSize: 3
                     }
                 }]
             },
@@ -415,11 +417,19 @@ function updateGraph() {
     window.myLine.update(0);
 }
 
+/**
+ * Changes date(expected in this Layout: dd.mm.yyyy) to this layout yyyy-mm-dd
+ * @param date
+ * @returns {string}
+ */
 function changeDateFormat(date) {
     var dateArr = date.split(".");
     return dateArr[2] + "-" + dateArr[1] + "-" + dateArr[0];
 }
 
+/**
+ * Sets timespan string for owngraph.html to use for graph generation
+ */
 function genOwnGraph() {
     var startTime = document.getElementById("StartTimePicker").value;
     var endTime = document.getElementById("EndTimePicker").value;
@@ -432,12 +442,19 @@ function genOwnGraph() {
     location.href = "owngraph.html";
 }
 
+/**
+ * Generates the Graph config for the given timeperiod
+ * @param zeitraumString
+ */
 function genGraph(zeitraumString) {
     var zeitraum = zeitraumString.split("&");
     getData(zeitraum[0], zeitraum[1]);
     updateGraph();
 }
 
+/**
+ * Updates Sensor select in dependency of the current chartdata
+ */
 function updateSensorSelect() {
     var sensorSelect = document.getElementById("sensorSelect");
     for (var i in sensorSelect.options) {
@@ -461,6 +478,9 @@ function updateSensorSelect() {
     $('#sensorSelect').material_select();
 }
 
+/**
+ * retrieves sensornames from db
+ */
 function getSensorNames() {
     $.ajax({
         async: false, //zum setzen der
@@ -477,6 +497,9 @@ function getSensorNames() {
     });
 }
 
+/**
+ * Generates the Settings dialog
+ */
 function genSettings() {
     getSensorNames();
     var tbody = document.getElementById("settingsBody");
@@ -513,6 +536,11 @@ function genSettings() {
     }
 }
 
+/**
+ * updates name of sensor with id
+ * @param id
+ * @param name
+ */
 function updateSensorNamePHP(id, name) {
     $.ajax({
         async: false, //zum setzen der
@@ -529,6 +557,10 @@ function updateSensorNamePHP(id, name) {
     });
 }
 
+/**
+ * Creates a new entry for sensor with id in the name database
+ * @param id
+ */
 function createSensorNamePHP(id) {
     $.ajax({
         async: false, //zum setzen der
@@ -551,4 +583,32 @@ function updateSensorName(id) {
         updateSensorNamePHP(id, newName.value);
     }
     genSettings();
+}
+
+/**
+ * Validates if StartTime < EndTime
+ */
+function validateTimeSpan(){
+    var startTime = document.getElementById("StartTimePicker").value;
+    var endTime = document.getElementById("EndTimePicker").value;
+    //Bad Workaround for when the startdatepicker doesnt get prepopulated because this function gets called when the endtimepicker get prepopulated
+    if(document.getElementById("StartDatePicker").value == "") {
+        var $input = $('#StartDatePicker').pickadate();
+        var picker = $input.pickadate('picker');
+        picker.set('select', new Date());
+    }
+    var startDate = document.getElementById("StartDatePicker").value;
+    var endDate = document.getElementById("EndDatePicker").value;
+    var startstamp = new Date(convertToJapan(startDate + " " + startTime + ":00"));
+    var endstamp = new Date(convertToJapan(endDate + " " + endTime + ":00"));
+    if(startstamp >= endstamp) {
+        //Set Warning Label & disable button
+        document.getElementById("warningLabel").style.visibility = "visible";
+        document.getElementById("generateBtn").classList.add("disabled");
+    }
+    else {
+        //hide Warning Label & enable Button again
+        document.getElementById("warningLabel").style.visibility = "hidden";
+        document.getElementById("generateBtn").classList.remove("disabled");
+    }
 }

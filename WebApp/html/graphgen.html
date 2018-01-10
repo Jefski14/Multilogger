@@ -7,7 +7,7 @@
     <title>ML GraphGen</title>
 
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/material_icons.css" type="text/css" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
@@ -38,29 +38,32 @@
 <main>
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
-            <div class="col s12">
+            <div class="col s12 m12">
                 <h1 class="header center orange-text">Graph Generator</h1>
             </div>
-            <div class="row">
-                <div class="col s4 input-field">
-                    <label>From</label>
-                    <input type="date" class="datepicker" id="StartDatePicker">
+            <div class="col s12 m6">
+                <div class="row input-field">
+                    <label>Von</label>
+                    <input onchange="validateTimeSpan()" type="date" class="datepicker" id="StartDatePicker">
                 </div>
-                <div class="col s4 input-field">
-                    <label>To</label>
-                    <input type="date" class="datepicker"  id="EndDatePicker">
-                </div>
-                <div class="col s4">
-                    <button class="btn-large waves-effect waves-light orange mycenter" onclick="genOwnGraph()">Generate!</button>
+                <div class="row input-field">
+                    <input onchange="validateTimeSpan()" type="text" class="timepicker" id="StartTimePicker" value="00:00">
                 </div>
             </div>
-            <div class="row">
-                <div class="col s4 input-field">
-                    <input type="text" class="timepicker" id="StartTimePicker" value="00:00">
+            <div class="col s12 m6 paddingTop">
+                <div class="row input-field">
+                    <label>Bis</label>
+                    <input onchange="validateTimeSpan()" type="date" class="datepicker"  id="EndDatePicker">
                 </div>
-                <div class="col s4 input-field">
-                    <input type="text" class="timepicker"  id="EndTimePicker">
+                <div class="row input-field">
+                    <input onchange="validateTimeSpan()" type="text" class="timepicker"  id="EndTimePicker">
                 </div>
+            </div>
+            <div class="col s12 center warningLabel" id="warningLabel">
+                ! Das Startdatum muss vor dem Enddatum liegen !
+            </div>
+            <div class="col s12 center-align">
+                <button id="generateBtn" class="btn-large waves-effect waves-light orange mycenter" onclick="genOwnGraph()">Generate!</button>
             </div>
         </div>
     </div>
@@ -70,7 +73,8 @@
         <div class="row">
             <div class="col s12">
                 <h5 class="white-text">Project Bio</h5>
-                <p class="grey-text text-lighten-4">Wir sind ein Team von Studenten die dieses Projekt im Zuge des Informatikstudiums durchführen.</p>
+                <p class="grey-text text-lighten-4">Wir sind ein Team von Studenten die dieses Projekt im Zuge des
+                    Informatikstudiums durchführen.</p>
             </div>
         </div>
     </div>
@@ -82,16 +86,24 @@
                     Made by <a class="orange-text text-lighten-3" href="#">Jérôme Fijalkowski &amp Torsten Petersen</a>
                     <br>© 2017 FH Aachen
                 </div>
-                <div class="col s4 right-align">
+
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({
+                            pageLanguage: 'de',
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                            autoDisplay: false
+                        }, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript"
+                        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                <div class="col s6 right-align">
+                    <div id="google_translate_element"></div>
                     Design Framework <a class="orange-text text-lighten-3"
                                         href="http://materializecss.com">Materialize</a>
                 </div>
-                <div class="col s2" id="google_translate_element"></div>
-                <script type="text/javascript">
-                    function googleTranslateElementInit() {
-                        new google.translate.TranslateElement({pageLanguage: 'de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
-                    }
-                </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
             </div>
         </div>
     </div>
@@ -100,7 +112,7 @@
 
 
 <!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../js/materialize.js"></script>
 <script src="../js/init.js"></script>
 
@@ -131,15 +143,15 @@
         ampmclickable: true, // make AM PM clickable
         aftershow: function(){} //Function for after opening timepicker
     });
+    //Prepopulate Timepicker
+    $("#EndTimePicker").val(getCurrentTime());
     //Prepopulate the Datepicker
-    var $input = $('#StartDatePicker').pickadate();
-    var picker = $input.pickadate('picker');
-    picker.set('select', new Date());
     var $input = $('#EndDatePicker').pickadate();
     var picker = $input.pickadate('picker');
     picker.set('select', new Date());
-    //Prepopulate Timepicker
-    $("#EndTimePicker").val(getCurrentTime());
+    var $input = $('#StartDatePicker').pickadate();
+    var picker = $input.pickadate('picker');
+    picker.set('select', new Date());
 </script>
 </body>
 

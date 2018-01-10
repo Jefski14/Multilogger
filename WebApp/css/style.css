@@ -21,7 +21,13 @@ body {
 main {
     flex: 1 0 auto;
 }
-
+.paddingTop {
+    padding-top: 10px;
+}
+.warningLabel {
+    color: red;
+    visibility: hidden;
+}
 .mycenter {
     display: flex;
     align-items: center;
